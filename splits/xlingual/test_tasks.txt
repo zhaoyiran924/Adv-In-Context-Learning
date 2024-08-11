@@ -1,0 +1,2 @@
+task1239_ted_translation_gl_ja
+task1435_ro_sts_parallel_language_translation_ro_to_en

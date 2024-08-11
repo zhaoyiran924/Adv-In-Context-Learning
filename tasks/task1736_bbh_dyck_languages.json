@@ -1,0 +1,1788 @@
+{
+	"Definition": [
+		"Correctly close a Dyck-n word."
+	],
+	"Categories": [
+		"Question Answering"
+	],
+	"Positive Examples": [
+		{
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: [ { [",
+			"output": "Let's think step by step.\nWe should process each input one by one and keep track of the stack configuration.\n0: empty stack\n1: [ ; stack: [\n2: { ; stack: [ {\n3: [ ; stack: [ { [\nNow, we have reached the end. The final stack is \"[ { [\".\nWe will need to pop out \"[\", \"{\", \"[\" one by one in that order.\nSo, we need \"]\", \"}\", \"]\". So the answer is ] } ]."
+		},
+		{
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: < > ( ( [ [ ( { } ) [ < > ] ]",
+			"output": "Let's think step by step.\nWe should process each input one by one and keep track of the stack configuration.\n0: empty stack\n1: < ; stack: <\n2: > ; stack: empty\n3: ( ; stack: (\n4: ( ; stack: ( (\n5: [ ; stack: ( ( [\n6: [ ; stack: ( ( [ [\n7: ( ; stack: ( ( [ [ (\n8: { ; stack: ( ( [ [ ( {\n9: } ; stack: ( ( [ [ (\n10: ) ; stack: ( ( [ [\n11: [ ; stack: ( ( [ [ [\n12: < ; stack: ( ( [ [ [ <\n13: > ; stack: ( ( [ [ [\n14: ] ; stack: ( ( [ [\n15: ] ; stack: ( ( [\nNow, we have reached the end. The final stack is \"( ( [\".\nWe will need to pop out \"[\", \"(\", \"(\" one by one in that order.\nSo, we need \"]\", \")\", \")\". So the answer is ] ) )."
+		},
+		{
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: < [ < [ { < [ ] < { } > > } ] > { { ( ) } { < [ < > ] > }",
+			"output": "Let's think step by step.\nWe should process each input one by one and keep track of the stack configuration.\n0: empty stack\n1: < ; stack: <\n2: [ ; stack: < [\n3: < ; stack: < [ <\n4: [ ; stack: < [ < [\n5: { ; stack: < [ < [ {\n6: < ; stack: < [ < [ { <\n7: [ ; stack: < [ < [ { < [\n8: ] ; stack: < [ < [ { <\n9: < ; stack: < [ < [ { < <\n10: { ; stack: < [ < [ { < < {\n11: } ; stack: < [ < [ { < <\n12: > ; stack: < [ < [ { <\n13: > ; stack: < [ < [ {\n14: } ; stack: < [ < [\n15: ] ; stack: < [ <\n16: > ; stack: < [\n17: { ; stack: < [ {\n18: { ; stack: < [ { {\n19: ( ; stack: < [ { { (\n20: ) ; stack: < [ { {\n21: } ; stack: < [ {\n22: { ; stack: < [ { {\n23: < ; stack: < [ { { <\n24: [ ; stack: < [ { { < [\n25: < ; stack: < [ { { < [ <\n26: > ; stack: < [ { { < [\n27: ] ; stack: < [ { { <\n28: > ; stack: < [ { {\n29: } ; stack: < [ {\nNow, we have reached the end. The final stack is \"< [ {\".\nWe will need to pop out \"{\", \"[\", \"<\" one by one in that order.\nSo, we need \"}\", \"]\", \">\". So the answer is } ] >."
+		}
+	],
+	"Negative Examples": [
+		{
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: [ { [",
+			"output": "Let's think step by step.\nWe see that there's an opening parenthesis at the beginning, so we'll need to add a closing one at the end. We also see that there's a {, so we'll need to add a }. Now we have [ { } ], which still isn't correct since there's an opening [ that needs to be closed. Therefore, the final answer is [ { } ] ]."
+		},
+		{
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: < > ( ( [ [ ( { } ) [ < > ] ]",
+			"output": "Let's think step by step.\nThe first opening parenthesis can be closed by either an opening or closing parenthesis. If we close it with an opening parenthesis, then we need another opening parenthesis to close that one, and so on. This would give us the following:\n< > ( ( [ [ ( { } ( [ < > ] ]\nWe can see that this is not correct, because there are more closing parentheses than there are opening parentheses. This means that we need to close the first parenthesis with a closing parenthesis, which gives us:\n< > ( ( [ [ ( { } ) [ < > ] ]\nNow we can see that the parentheses are balanced, and the sequence is complete."
+		},
+		{
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: < [ < [ { < [ ] < { } > > } ] > { { ( ) } { < [ < > ] > }",
+			"output": "Let's think step by step.\nWe have an opening <, so we need a closing >. We have an opening [, so we need a closing ]. We have an opening {, so we need a closing }. We have an opening <, so we need a closing >. We have an opening [, so we need a closing ]. We have an opening {, so we need a closing }. We have an opening (, so we need a closing ).\n< [ < [ { < [ ] < { } > > } ] > { { ( ) } { < [ < > ] > } }"
+		}
+	],
+	"Instances": [
+		{
+			"id": "task1736_0",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: [ [",
+			"output": [
+				"] ]"
+			]
+		},
+		{
+			"id": "task1736_1",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: < [ [",
+			"output": [
+				"] ] >"
+			]
+		},
+		{
+			"id": "task1736_2",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: { < { { [ ] } } { < [ { { < > } } [ ( ) ( ) ] [ [ [ [ ( { < ( < ( [ ] ) > ) > } ) ] ] ] ] ] ( ) ( [ ] { } ) > } > [ { ( ( ) ) } ]",
+			"output": [
+				"}"
+			]
+		},
+		{
+			"id": "task1736_3",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: < [ ] { < ( ) > } [ ] ( { }",
+			"output": [
+				") >"
+			]
+		},
+		{
+			"id": "task1736_4",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: < ( ( ( < > ) ) ( { { } [ { } ] [ ] < ( ) > } ) )",
+			"output": [
+				">"
+			]
+		},
+		{
+			"id": "task1736_5",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: ( [ [ [ { } ] ] { < [ < [ { } ] > ] > }",
+			"output": [
+				"] )"
+			]
+		},
+		{
+			"id": "task1736_6",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: ( { { } }",
+			"output": [
+				")"
+			]
+		},
+		{
+			"id": "task1736_7",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: < ( ( ( [ { } ] )",
+			"output": [
+				") ) >"
+			]
+		},
+		{
+			"id": "task1736_8",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: [ < > ] [ [ < > ]",
+			"output": [
+				"]"
+			]
+		},
+		{
+			"id": "task1736_9",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: [ ] ( [ [ { < { { ( < > [ ] ) } } < > > } ] ] { }",
+			"output": [
+				")"
+			]
+		},
+		{
+			"id": "task1736_10",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: [ < [ ] ( ) ( ( { { } } ) ) < { < > } > [ ] > ] < ( ) > ( ( ( ) ) ) ( < >",
+			"output": [
+				")"
+			]
+		},
+		{
+			"id": "task1736_11",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: [ { < ( ) > }",
+			"output": [
+				"]"
+			]
+		},
+		{
+			"id": "task1736_12",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: [ < [ ( ( ) < ( ) > ( { { } } [ [ [ < ( [ ] ) ( ) > ] ] ] { { { { { } } } { { } { < [ [ ] ] > } } { } } } ) ) ] >",
+			"output": [
+				"]"
+			]
+		},
+		{
+			"id": "task1736_13",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: < ( ( [ < > { [ { ( ) } ] < { < { } > [ ( < > ) ] } > } [ < > ] ] ) { { ( { ( ( [ ( [ ] ) ] < { } > ) ) { { ( [ [ ] ] ) } [ ( ) ] { { [ ] } } } } ) } ( { } ) }",
+			"output": [
+				") >"
+			]
+		},
+		{
+			"id": "task1736_14",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: [ ] { ( ( < { ( ( ( { < > ( ) } ) ) [ { } ] { { ( ) } } ) } < > >",
+			"output": [
+				") ) }"
+			]
+		},
+		{
+			"id": "task1736_15",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: < { < > } { (",
+			"output": [
+				") } >"
+			]
+		},
+		{
+			"id": "task1736_16",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: [ [ < < { } >",
+			"output": [
+				"> ] ]"
+			]
+		},
+		{
+			"id": "task1736_17",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: < ( ( )",
+			"output": [
+				") >"
+			]
+		},
+		{
+			"id": "task1736_18",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: ( ( ) ) [ { ( < > ) }",
+			"output": [
+				"]"
+			]
+		},
+		{
+			"id": "task1736_19",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: [ < < > > < ( < < < [ [ [ [ ] ] ] ] > > > ) [ < < [ ] > > ] { [ < > ] < > [ ( ) ] } { [ ]",
+			"output": [
+				"} > ]"
+			]
+		},
+		{
+			"id": "task1736_20",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: { ( < [ < > ]",
+			"output": [
+				"> ) }"
+			]
+		},
+		{
+			"id": "task1736_21",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: { ( [ ] )",
+			"output": [
+				"}"
+			]
+		},
+		{
+			"id": "task1736_22",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: { ( < > ) } ( ( [ ] ) < [ ( [ [ ] ] [ { } ] { } [ < { [ ] } > ] ( ) ) ]",
+			"output": [
+				"> )"
+			]
+		},
+		{
+			"id": "task1736_23",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: < { < [ [ ( { } ) ] ]",
+			"output": [
+				"> } >"
+			]
+		},
+		{
+			"id": "task1736_24",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: { ( [ [ ] ( ) ]",
+			"output": [
+				") }"
+			]
+		},
+		{
+			"id": "task1736_25",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: [ < { [ ] } >",
+			"output": [
+				"]"
+			]
+		},
+		{
+			"id": "task1736_26",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: ( ( < >",
+			"output": [
+				") )"
+			]
+		},
+		{
+			"id": "task1736_27",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: < < { ( < ( ) > ) }",
+			"output": [
+				"> >"
+			]
+		},
+		{
+			"id": "task1736_28",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: [ [ < [ [ ] ] > ] ] { } { ( { ( ( ) ) ( ) { { [ [ ( { < { [ { [ ( < ( ( < < < [ ( ) ] [ ] > > > ) ) > < [ < { < ( ) > } > ] > ) ] } ] } > ( ( ) ) } ) [ ( ) ] ] ( < > ) ] } } } ) } [",
+			"output": [
+				"]"
+			]
+		},
+		{
+			"id": "task1736_29",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: { { } ( ( ) )",
+			"output": [
+				"}"
+			]
+		},
+		{
+			"id": "task1736_30",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: < [ { { < ( ) > { < { } > ( < ( ) > { < [ ( { { ( < [ ] > ) } } { ( ( [ [ { } [ ] ] ] ) ) } ) ] > } ) } }",
+			"output": [
+				"} ] >"
+			]
+		},
+		{
+			"id": "task1736_31",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: ( < [ ( )",
+			"output": [
+				"] > )"
+			]
+		},
+		{
+			"id": "task1736_32",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: [ < [ ( [ < > ] { < > } [ [ ] ] ) ]",
+			"output": [
+				"> ]"
+			]
+		},
+		{
+			"id": "task1736_33",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: < ( ( [ ( [ ] ) ] ) )",
+			"output": [
+				">"
+			]
+		},
+		{
+			"id": "task1736_34",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: < [ ]",
+			"output": [
+				">"
+			]
+		},
+		{
+			"id": "task1736_35",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: [ { ( { } ) } < < ( ) { { < [ { [ ( ) ] } ] > } } > >",
+			"output": [
+				"]"
+			]
+		},
+		{
+			"id": "task1736_36",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: ( ( { }",
+			"output": [
+				") )"
+			]
+		},
+		{
+			"id": "task1736_37",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: [ [ [ [ < { ( ) } ( ) > { ( ) } ] { ( ) }",
+			"output": [
+				"] ] ]"
+			]
+		},
+		{
+			"id": "task1736_38",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: { } < { } < > (",
+			"output": [
+				") >"
+			]
+		},
+		{
+			"id": "task1736_39",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: ( ( [ < < > [ < { } > ] { < [ ] > ( ( ( [ [ { < > } ] ] ) ) ) ( < < > > ) } > ]",
+			"output": [
+				") )"
+			]
+		},
+		{
+			"id": "task1736_40",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: { < { } > { (",
+			"output": [
+				") } }"
+			]
+		},
+		{
+			"id": "task1736_41",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: ( [ [ { < > { } { } < < < < { } > > ( < ( ( ) ) [ ( [ ] ) ] > ) > > { } } [ < < > > ] < ( ) > ] ]",
+			"output": [
+				")"
+			]
+		},
+		{
+			"id": "task1736_42",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: { < <",
+			"output": [
+				"> > }"
+			]
+		},
+		{
+			"id": "task1736_43",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: { { { } }",
+			"output": [
+				"}"
+			]
+		},
+		{
+			"id": "task1736_44",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: < { } [ [ ( ( < { < { [ ] } > } > ) )",
+			"output": [
+				"] ] >"
+			]
+		},
+		{
+			"id": "task1736_45",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: < { ( ( )",
+			"output": [
+				") } >"
+			]
+		},
+		{
+			"id": "task1736_46",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: [ ( < { [ ( ) ] } >",
+			"output": [
+				") ]"
+			]
+		},
+		{
+			"id": "task1736_47",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: ( ( { < { < { < > } > } > } ) ( ) ( { [ ( < ( < < { ( { < > } ) } > > ) > ) { ( { < ( { [ ] } ( ) ) > } < { < { { ( ) } } > { < [ { ( ) } ] > } } > ) } [ [ ( ) ] ] ]",
+			"output": [
+				"} ) )"
+			]
+		},
+		{
+			"id": "task1736_48",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: [ ] < { < { [ ( ) ] } > }",
+			"output": [
+				">"
+			]
+		},
+		{
+			"id": "task1736_49",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: [ < [ ] > ] [ { [ ] }",
+			"output": [
+				"]"
+			]
+		},
+		{
+			"id": "task1736_50",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: ( < > ( [ ( )",
+			"output": [
+				"] ) )"
+			]
+		},
+		{
+			"id": "task1736_51",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: ( < { ( ) { } } ( < > ) >",
+			"output": [
+				")"
+			]
+		},
+		{
+			"id": "task1736_52",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: < < ( < >",
+			"output": [
+				") > >"
+			]
+		},
+		{
+			"id": "task1736_53",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: { { } ( ( < > )",
+			"output": [
+				") }"
+			]
+		},
+		{
+			"id": "task1736_54",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: ( < { < { } > { { ( [ ( { } ) ( ( [ ( [ ( { [ { } ] } ) ] ) ] ) ) [ < [ [ [ [ [ < > ] [ { [ [ { ( ( < [ ] > ) [ ( [ ] ) ] < { [ ] } > ) } ] ] } ] { < ( < > ) > } ] ] ] ] > ] ] ) } } } >",
+			"output": [
+				")"
+			]
+		},
+		{
+			"id": "task1736_55",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: ( < < < >",
+			"output": [
+				"> > )"
+			]
+		},
+		{
+			"id": "task1736_56",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: < < [ ( ) ] >",
+			"output": [
+				">"
+			]
+		},
+		{
+			"id": "task1736_57",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: < > {",
+			"output": [
+				"}"
+			]
+		},
+		{
+			"id": "task1736_58",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: < ( [ [ [ [ ( ) ] ] { } ] ] )",
+			"output": [
+				">"
+			]
+		},
+		{
+			"id": "task1736_59",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: < [ < > ]",
+			"output": [
+				">"
+			]
+		},
+		{
+			"id": "task1736_60",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: { [ [ [ [ ( ) ] ] ] ]",
+			"output": [
+				"}"
+			]
+		},
+		{
+			"id": "task1736_61",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: { < { ( { [ ] } ) } > { } ( [ { { { ( [ < > ] ) } } } ] ) { { ( { } ) } }",
+			"output": [
+				"}"
+			]
+		},
+		{
+			"id": "task1736_62",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: ( ( < [ { { } } ] > { } ) ( < > ) [ ( < > ) ] <",
+			"output": [
+				"> )"
+			]
+		},
+		{
+			"id": "task1736_63",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: [ < < { } > < > > ( )",
+			"output": [
+				"]"
+			]
+		},
+		{
+			"id": "task1736_64",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: [ < ( < < > [ ] ( ) >",
+			"output": [
+				") > ]"
+			]
+		},
+		{
+			"id": "task1736_65",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: { [ < [ { < ( ) > } ] >",
+			"output": [
+				"] }"
+			]
+		},
+		{
+			"id": "task1736_66",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: [ { < > < [ ] > [ < { } > ] [ ( { } ) ] [ ] [ ( ) ] ( ) < { { < { { { { { ( { } ) } ( { < > } ) } } } } > } }",
+			"output": [
+				"> } ]"
+			]
+		},
+		{
+			"id": "task1736_67",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: [ [ < [ ( [ < [ ] > ] ) ] > ] ( { }",
+			"output": [
+				") ]"
+			]
+		},
+		{
+			"id": "task1736_68",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: ( [ ( )",
+			"output": [
+				"] )"
+			]
+		},
+		{
+			"id": "task1736_69",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: { ( { { < { < > } > } < { } > < < < [ < [ ] > ] > > >",
+			"output": [
+				"} ) }"
+			]
+		},
+		{
+			"id": "task1736_70",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: { [ < [ < { < { } > } > ( ( < { [ ] } > { { } } ) { } ) ] > ]",
+			"output": [
+				"}"
+			]
+		},
+		{
+			"id": "task1736_71",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: ( ( < { [ [ { [ [ ( [ < < > > ( ( [ ( ) ( { ( < [ ] > ) } ) ] ) ) ] ) ] ( ) ] } { [ [ ] ] } ] ] } > [ { < > } ]",
+			"output": [
+				") )"
+			]
+		},
+		{
+			"id": "task1736_72",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: { { [ { < { } > } ( ) ]",
+			"output": [
+				"} }"
+			]
+		},
+		{
+			"id": "task1736_73",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: < [ ] > ( ( ( { { { { ( ( { { } } ) ) } ( { } ) } } { { { [ { ( ) } ( ) ( ( { [ < < > > ] < < > > } ) ) ] ( { } { } ) } } } } )",
+			"output": [
+				") )"
+			]
+		},
+		{
+			"id": "task1736_74",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: { < [ < ( < [ ] > ) < > < { } > { < > { } { { < [ < < { } [ { } ] < > > > ] < > > } < [ [ ] ] > } } > ] [ ( ) ] > } [ { ( < ( ( ( [ { } ] ) ) ) > ) } ] [ < ( ) ( ( { ( ) [ { { ( { } ) } } ] } ) ) >",
+			"output": [
+				"]"
+			]
+		},
+		{
+			"id": "task1736_75",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: ( < [ < ( ) > [ { [ { ( ) } ] } ] ] > [ { } ] ( < { < [ { } ] > } > ) ) ( ( < ( ) > [ ] [ < { ( ) } > ] [ { } ] [",
+			"output": [
+				"] ) )"
+			]
+		},
+		{
+			"id": "task1736_76",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: ( { } < > { < { ( < > ) } >",
+			"output": [
+				"} )"
+			]
+		},
+		{
+			"id": "task1736_77",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: < < [ ] > ( < > ) <",
+			"output": [
+				"> >"
+			]
+		},
+		{
+			"id": "task1736_78",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: < [ { { [ { [ { ( ( ) ) } ] } ( < < ( < > ) > { } [ [ [ ( < { } > ) ] ] ] { } > ) ( { } ) { } ] }",
+			"output": [
+				"} ] >"
+			]
+		},
+		{
+			"id": "task1736_79",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: < [ ( [ ( ) [ < [ < > ] < > [ ] > ] < < ( ) ( ) > < { } > > [ < > ] ]",
+			"output": [
+				") ] >"
+			]
+		},
+		{
+			"id": "task1736_80",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: [ < [ { { < > [ ( ) ] ( ( ) ) } } ] > ] { { { ( < > )",
+			"output": [
+				"} } }"
+			]
+		},
+		{
+			"id": "task1736_81",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: ( < < > ( [ < { { } } ( ) > ] ) [ ( ) ] [ ] [ { } ] >",
+			"output": [
+				")"
+			]
+		},
+		{
+			"id": "task1736_82",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: < { ( { } ) < > }",
+			"output": [
+				">"
+			]
+		},
+		{
+			"id": "task1736_83",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: { < [ ]",
+			"output": [
+				"> }"
+			]
+		},
+		{
+			"id": "task1736_84",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: ( { } ) < { < { } >",
+			"output": [
+				"} >"
+			]
+		},
+		{
+			"id": "task1736_85",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: < ( ( { < > } )",
+			"output": [
+				") >"
+			]
+		},
+		{
+			"id": "task1736_86",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: ( ( ( ) )",
+			"output": [
+				")"
+			]
+		},
+		{
+			"id": "task1736_87",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: [ [ < < { [ ] ( [ [ ( [ [ { [ ] } ] ] ) ( ) ] ] ) ( ) [ ] < [ ( ( ( ) ) ) ] < < < > [ ( ) ] > [ ] > > [ < > ] } > >",
+			"output": [
+				"] ]"
+			]
+		},
+		{
+			"id": "task1736_88",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: { { { < { } < ( ( < > ) ) > > } } { [ [ { } ] ] [ ] < < { } > [ ( ) { ( { } ) } ] > ( [ < [ ( ( { } ( ) < > < [ < < { { ( [ { } ] ) } } { } { } > > ] > ( ) ) ) < > ] > ] )",
+			"output": [
+				"} }"
+			]
+		},
+		{
+			"id": "task1736_89",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: [ [ { { < ( ) > } } ]",
+			"output": [
+				"]"
+			]
+		},
+		{
+			"id": "task1736_90",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: { < ( [ ( ( [ < { ( { } ) } < < > > > ] ) ) ] ) >",
+			"output": [
+				"}"
+			]
+		},
+		{
+			"id": "task1736_91",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: { { ( { [ [ { < [ ] > } ] ] } ) [ ( < { < > } > ) ]",
+			"output": [
+				"} }"
+			]
+		},
+		{
+			"id": "task1736_92",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: [ [ < [ ] > ] ] <",
+			"output": [
+				">"
+			]
+		},
+		{
+			"id": "task1736_93",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: [ < > [ [ < [ ] > ]",
+			"output": [
+				"] ]"
+			]
+		},
+		{
+			"id": "task1736_94",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: ( ( { < > ( ) [ { < ( < > < ( ( ) ( [ { } ] ) ) > { { } { ( ) } } ) [ ] > } ] { { } } }",
+			"output": [
+				") )"
+			]
+		},
+		{
+			"id": "task1736_95",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: ( ( ( [ < [ < [ ( [ { < ( < ( ( ) ) { } [ ] > ) > } ] ) { < > } ] [ < [ { ( < < { { [ < { [ [ < > [ ] ] ] } > ] { { } } } } > > ) } ] > { < > { } } ] > ( [ ] ) ] > ] ) ( )",
+			"output": [
+				") )"
+			]
+		},
+		{
+			"id": "task1736_96",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: < < { } >",
+			"output": [
+				">"
+			]
+		},
+		{
+			"id": "task1736_97",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: ( < >",
+			"output": [
+				")"
+			]
+		},
+		{
+			"id": "task1736_98",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: ( { ( )",
+			"output": [
+				"} )"
+			]
+		},
+		{
+			"id": "task1736_99",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: ( ( ( ( [ [ < [ { { [ ] } } ] > ] ] ( ) ) )",
+			"output": [
+				") )"
+			]
+		},
+		{
+			"id": "task1736_100",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: < < ( ( [ ] )",
+			"output": [
+				") > >"
+			]
+		},
+		{
+			"id": "task1736_101",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: < ( { } )",
+			"output": [
+				">"
+			]
+		},
+		{
+			"id": "task1736_102",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: < < < { < < > > } > < < { < ( < > ) < > [ [ [ < ( ( ) ) > [ ] [ ] ] ] ] < ( ) > ( ) [ ( [ [ ] ] ) ] > } { } { < [ < { ( { } ) } > ] > } { { } } > >",
+			"output": [
+				"> >"
+			]
+		},
+		{
+			"id": "task1736_103",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: < { [ ] }",
+			"output": [
+				">"
+			]
+		},
+		{
+			"id": "task1736_104",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: ( [ { < ( [ ] < > ) > } ]",
+			"output": [
+				")"
+			]
+		},
+		{
+			"id": "task1736_105",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: ( { < [ < > ] > }",
+			"output": [
+				")"
+			]
+		},
+		{
+			"id": "task1736_106",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: [ ( [ ( [ < ( ) > [ < { } { [ ] } [ ] [ ] > { ( < { < > } > ) } ] ] ) ] )",
+			"output": [
+				"]"
+			]
+		},
+		{
+			"id": "task1736_107",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: { < ( [ ] ) >",
+			"output": [
+				"}"
+			]
+		},
+		{
+			"id": "task1736_108",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: < { < ( )",
+			"output": [
+				"> } >"
+			]
+		},
+		{
+			"id": "task1736_109",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: ( < ( ) ( < [ ] > ( ) < [ [ { } { < > } < > ] ] > ) [ ] > [ ( < { [ ] } [ ] ( { [ < > ] < < > > ( ( < { } > ) ) } ) [ [ [ < < < ( ( ) ) > > > ] < < { [ ] } > > ( [ < > ] ) ] ] > ) ] < >",
+			"output": [
+				")"
+			]
+		},
+		{
+			"id": "task1736_110",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: ( ( [ [ ] ]",
+			"output": [
+				") )"
+			]
+		},
+		{
+			"id": "task1736_111",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: { ( ( ) ) { < > { ( [ [ { } ] [ ( ) ] ] ) } [ { { { ( < [ ] > ) } { < > } } }",
+			"output": [
+				"] } }"
+			]
+		},
+		{
+			"id": "task1736_112",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: < ( < > ) { < < { ( ( ) { { { < > { } } [ < > ] ( ) } } ( ( ) ) ) < [ { { ( ( < > ) ) } } [ { < { } > } ] ( ) ] > } { [ ] } > > [ ] } > ( [ ] ) [ < { ( ( ( ) ( ) ) ) ( ) } > ] [ < ( )",
+			"output": [
+				"> ]"
+			]
+		},
+		{
+			"id": "task1736_113",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: [ ( { } )",
+			"output": [
+				"]"
+			]
+		},
+		{
+			"id": "task1736_114",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: ( { < { ( ) } > } { ( { [ ] } ) }",
+			"output": [
+				")"
+			]
+		},
+		{
+			"id": "task1736_115",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: { [ [ ] [ ]",
+			"output": [
+				"] }"
+			]
+		},
+		{
+			"id": "task1736_116",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: ( < [ < ( [ ( ) ] < > < ( { } ) > ) < [ ] > > ] ( ) < [ < > ] >",
+			"output": [
+				"> )"
+			]
+		},
+		{
+			"id": "task1736_117",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: ( < < > > [ [ [ { { < { } ( { } ) > } } < { { { } } } < > > ] ] ( )",
+			"output": [
+				"] )"
+			]
+		},
+		{
+			"id": "task1736_118",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: ( { ( ( { } ) ) } ( ) ) < { (",
+			"output": [
+				") } >"
+			]
+		},
+		{
+			"id": "task1736_119",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: < ( { [ { } ] } [ ] [ ] )",
+			"output": [
+				">"
+			]
+		},
+		{
+			"id": "task1736_120",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: { { [ ( [ { ( { ( [ ( [ ] ) { ( < < [ ] > [ [ ] ] > ) } ] ) [ ] } ) } ] ) ] } { < [ ] > } (",
+			"output": [
+				") }"
+			]
+		},
+		{
+			"id": "task1736_121",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: { [ < [ ] > ] } { ( ) [ < > ] [ [ [ ] ]",
+			"output": [
+				"] }"
+			]
+		},
+		{
+			"id": "task1736_122",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: [ < [ { ( < ( ( [ < < { } > < < [ ( { < < > > } ) ] > > > ] { } ) ) > ) } ] [ < < { } > ( < < ( ) < ( [ ] ) > > ( ( ) ) > ) > ] > ] < < {",
+			"output": [
+				"} > >"
+			]
+		},
+		{
+			"id": "task1736_123",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: [ < [ ]",
+			"output": [
+				"> ]"
+			]
+		},
+		{
+			"id": "task1736_124",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: { { [ < > ] } < [ ( [ { } ] ) ] > < [ < > { } ] < ( [ ] ) > <",
+			"output": [
+				"> > }"
+			]
+		},
+		{
+			"id": "task1736_125",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: { ( { [ ( ) ] } { { [ ] } } { } < > ) } [ < [ ( ) ]",
+			"output": [
+				"> ]"
+			]
+		},
+		{
+			"id": "task1736_126",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: { ( < { < ( ) > } >",
+			"output": [
+				") }"
+			]
+		},
+		{
+			"id": "task1736_127",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: ( { < { ( ( { } ) ( ) ) } { } < { } > < > > } { } ( { ( { { } } ) [ ( ) ] } ) ) [ ( [ ]",
+			"output": [
+				") ]"
+			]
+		},
+		{
+			"id": "task1736_128",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: < ( )",
+			"output": [
+				">"
+			]
+		},
+		{
+			"id": "task1736_129",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: [ { < ( )",
+			"output": [
+				"> } ]"
+			]
+		},
+		{
+			"id": "task1736_130",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: ( ( [ < [ ] > { { [ [ ] ] } } ]",
+			"output": [
+				") )"
+			]
+		},
+		{
+			"id": "task1736_131",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: { < ( ) > { < > } ( < > ) < ( ) > [ ] < < < < ( ( ) ) < ( ) > > > > > {",
+			"output": [
+				"} }"
+			]
+		},
+		{
+			"id": "task1736_132",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: < < > ( [ ]",
+			"output": [
+				") >"
+			]
+		},
+		{
+			"id": "task1736_133",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: < ( < > ) > { } < { [ < > ]",
+			"output": [
+				"} >"
+			]
+		},
+		{
+			"id": "task1736_134",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: [ < [ ] > [",
+			"output": [
+				"] ]"
+			]
+		},
+		{
+			"id": "task1736_135",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: ( < { < ( ( < { } { < < { { { } } } > < < < > [ ] > { } ( < { { ( [ ( ) ] ) } } > ) > > } > ) ) > } >",
+			"output": [
+				")"
+			]
+		},
+		{
+			"id": "task1736_136",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: ( ( ( [ { } ] )",
+			"output": [
+				") )"
+			]
+		},
+		{
+			"id": "task1736_137",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: [ { { } } ] ( < { < [ ( ( ) ) ] > } >",
+			"output": [
+				")"
+			]
+		},
+		{
+			"id": "task1736_138",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: { < ( < < < [ < [ [ ] ( ( ) ) ] > < > ] > > > )",
+			"output": [
+				"> }"
+			]
+		},
+		{
+			"id": "task1736_139",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: { ( [ ] ) } [ ] ( { < > } ( { } ( { { } } ) ) ( [ ] ) ( ) ( < ( { { ( < { [ ( ) ] } > ) } } [ < [ ( [ { } ] [ < > < < > > ] ) ] > ] { < { } > } < > ) > )",
+			"output": [
+				")"
+			]
+		},
+		{
+			"id": "task1736_140",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: ( [ < < > [ [ < > ] ] > ] ( < < < ( [ [ ] ] ) [ ( ( [ { { } } ] ) ) ] > >",
+			"output": [
+				"> ) )"
+			]
+		},
+		{
+			"id": "task1736_141",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: ( ) ( (",
+			"output": [
+				") )"
+			]
+		},
+		{
+			"id": "task1736_142",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: { < [ ] > ( { [ ] } <",
+			"output": [
+				"> ) }"
+			]
+		},
+		{
+			"id": "task1736_143",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: ( < ( ) >",
+			"output": [
+				")"
+			]
+		},
+		{
+			"id": "task1736_144",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: { ( ( ) ( { ( < ( ) > ) }",
+			"output": [
+				") ) }"
+			]
+		},
+		{
+			"id": "task1736_145",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: [ < [ [ < > ] ] < ( ) > [ { } ] < [ [ ] ] > ( ) < { < [ ] < < [ [ { [ ] } ] ] > > ( [ ( ( ) ) ] ) > } > [ { { < > } } ] > < ( < { } { [ { [ ] } ] } >",
+			"output": [
+				") > ]"
+			]
+		},
+		{
+			"id": "task1736_146",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: ( < < < ( < < > > ) > > >",
+			"output": [
+				")"
+			]
+		},
+		{
+			"id": "task1736_147",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: < < >",
+			"output": [
+				">"
+			]
+		},
+		{
+			"id": "task1736_148",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: ( { ( ) { [ ] { ( ( { < > } ) ) ( < < > < > > < ( ( ) ) > ) } < ( < < < { } > > > ) > } }",
+			"output": [
+				")"
+			]
+		},
+		{
+			"id": "task1736_149",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: ( ) ( < < { }",
+			"output": [
+				"> > )"
+			]
+		},
+		{
+			"id": "task1736_150",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: ( < ( [ ] ) > {",
+			"output": [
+				"} )"
+			]
+		},
+		{
+			"id": "task1736_151",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: ( < { } [ ] >",
+			"output": [
+				")"
+			]
+		},
+		{
+			"id": "task1736_152",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: { < > } ( ) [ ] {",
+			"output": [
+				"}"
+			]
+		},
+		{
+			"id": "task1736_153",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: < [ { { [ [ [ < ( < [ ] { [ ( [ ] ) ] [ ] < > } > ) > ] ( [ ] ) ] ] } }",
+			"output": [
+				"] >"
+			]
+		},
+		{
+			"id": "task1736_154",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: < { [ ] } > ( ) < [ [ { [ [ ] ] } ] ] ( ) [ < ( [ { } ] ) > ( ( ) ) ]",
+			"output": [
+				">"
+			]
+		},
+		{
+			"id": "task1736_155",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: < { < { [ < { ( [ ] ) } > { ( { } ) } ( ) ] } > } [ < < > > ] { } [ ] < { }",
+			"output": [
+				"> >"
+			]
+		},
+		{
+			"id": "task1736_156",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: ( { [ [ { } ] ] }",
+			"output": [
+				")"
+			]
+		},
+		{
+			"id": "task1736_157",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: ( ( < { [ { } ] } > ) ) < {",
+			"output": [
+				"} >"
+			]
+		},
+		{
+			"id": "task1736_158",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: < < < [ ( ) ] >",
+			"output": [
+				"> >"
+			]
+		},
+		{
+			"id": "task1736_159",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: [ < [ ] { { } { < ( { } ) > } } > ] ( {",
+			"output": [
+				"} )"
+			]
+		},
+		{
+			"id": "task1736_160",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: { < < > ( [ [ { ( ( [ ] < > ) ) } ] { [ [ ] { } { [ { < > } ] } ( { { { { } } } } ) ] } ] ) (",
+			"output": [
+				") > }"
+			]
+		},
+		{
+			"id": "task1736_161",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: { ( (",
+			"output": [
+				") ) }"
+			]
+		},
+		{
+			"id": "task1736_162",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: [ ( ( { < ( { } ) > } )",
+			"output": [
+				") ]"
+			]
+		},
+		{
+			"id": "task1736_163",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: ( [ < < { } > > ]",
+			"output": [
+				")"
+			]
+		},
+		{
+			"id": "task1736_164",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: ( ) { <",
+			"output": [
+				"> }"
+			]
+		},
+		{
+			"id": "task1736_165",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: { ( [ { ( < [ { ( ) { } } ] > ) < > } ]",
+			"output": [
+				") }"
+			]
+		},
+		{
+			"id": "task1736_166",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: { < < { ( < > ) }",
+			"output": [
+				"> > }"
+			]
+		},
+		{
+			"id": "task1736_167",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: { { [ [ ] { { < > [ ( ) ( [ ] ) [ ] { < > } ] } } [ { [ ] } ] { ( ) }",
+			"output": [
+				"] } }"
+			]
+		},
+		{
+			"id": "task1736_168",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: { {",
+			"output": [
+				"} }"
+			]
+		},
+		{
+			"id": "task1736_169",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: < ( [ { ( < > ) } ] ) > { ( [",
+			"output": [
+				"] ) }"
+			]
+		},
+		{
+			"id": "task1736_170",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: [ { [ { ( < < < < > { } > { [ { } ] } > > ) } ] [ ] } ] [ < { { } } [ [ ( ( ) ) ] ] > ] [ ( ( [ ] )",
+			"output": [
+				") ]"
+			]
+		},
+		{
+			"id": "task1736_171",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: < { < ( ) ( ( < > < ( ( < < > > ) ) { ( ) } > ) ) { { } }",
+			"output": [
+				"> } >"
+			]
+		},
+		{
+			"id": "task1736_172",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: [ { [ < [ < { } > ] [ ] >",
+			"output": [
+				"] } ]"
+			]
+		},
+		{
+			"id": "task1736_173",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: < < [ ( < [ ( { [ ( ) ] [ ( ( { [ ] } ) ) ] } ) ] > ) ] <",
+			"output": [
+				"> > >"
+			]
+		},
+		{
+			"id": "task1736_174",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: < { { } } ( < [ ] [ { } ] > ) ( { { } { { ( ) } } } ) { < { { [ ] } [ ( ) ] } ( < { [ < > ] } > ) < ( [ ] { ( < < [ ] > > ) [ { [ [ ( ( ) ) ] ] } ] } { } ) > ( { { [ [ ( ) ] ] } } )",
+			"output": [
+				"> } >"
+			]
+		},
+		{
+			"id": "task1736_175",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: [ ( ) { [ ] } [ ] [ ] { < { ( ( { } ) ) { [ { } ] } } > [ ] }",
+			"output": [
+				"]"
+			]
+		},
+		{
+			"id": "task1736_176",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: < ( { ( < < > > )",
+			"output": [
+				"} ) >"
+			]
+		},
+		{
+			"id": "task1736_177",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: < ( < >",
+			"output": [
+				") >"
+			]
+		},
+		{
+			"id": "task1736_178",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: [ ] { ( { < > } ) } [ ( ) ] { } [ { { ( < > ) } <",
+			"output": [
+				"> } ]"
+			]
+		},
+		{
+			"id": "task1736_179",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: [ { { ( ) }",
+			"output": [
+				"} ]"
+			]
+		},
+		{
+			"id": "task1736_180",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: { [ { [ ] } ] } [ [ { { } } [ < >",
+			"output": [
+				"] ] ]"
+			]
+		},
+		{
+			"id": "task1736_181",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: [ { ( < [ [ ] ] > )",
+			"output": [
+				"} ]"
+			]
+		},
+		{
+			"id": "task1736_182",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: { ( ( [ ] ) )",
+			"output": [
+				"}"
+			]
+		},
+		{
+			"id": "task1736_183",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: ( < < > > < > [ ] [",
+			"output": [
+				"] )"
+			]
+		},
+		{
+			"id": "task1736_184",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: < [ ( { { ( ( ) ) } } ) [ ( [ { } ] ) ] < { { < < < > [ < [ < ( [ ( { ( ( < < < < > > > { ( { { < ( ) > ( ) } } ) } > { } ) ) } ) ] ) > ] > ] > < { } > > } ( ) < { ( ) } > } > ] [ < ( ) > ]",
+			"output": [
+				">"
+			]
+		},
+		{
+			"id": "task1736_185",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: { [ { { { } } }",
+			"output": [
+				"] }"
+			]
+		},
+		{
+			"id": "task1736_186",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: [ [ ( { { ( { } ) } < < ( [ [ { } < [ { < [ { ( ) ( [ { } ] ) } ] < > > } ] ( < { ( [ ] ) } > ) > ] ( [ < ( ) > ] ) ] ) > > }",
+			"output": [
+				") ] ]"
+			]
+		},
+		{
+			"id": "task1736_187",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: [ (",
+			"output": [
+				") ]"
+			]
+		},
+		{
+			"id": "task1736_188",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: ( {",
+			"output": [
+				"} )"
+			]
+		},
+		{
+			"id": "task1736_189",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: [ ( < [ [ { [ < [ < ( [ ] ) > ] < > > ( < [ < [ < ( [ ( [ ] ) < ( ) > ] [ ( { ( ) } [ < { { { ( [ ] ) } } } > ] ) ] ) > ] > ] > ) ] } ] ] > ) ( { { { } } }",
+			"output": [
+				") ]"
+			]
+		},
+		{
+			"id": "task1736_190",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: { [ [ < > ] (",
+			"output": [
+				") ] }"
+			]
+		},
+		{
+			"id": "task1736_191",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: < ( ) ( { { [ ] } }",
+			"output": [
+				") >"
+			]
+		},
+		{
+			"id": "task1736_192",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: < < ( [ ] ) > < >",
+			"output": [
+				">"
+			]
+		},
+		{
+			"id": "task1736_193",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: ( [",
+			"output": [
+				"] )"
+			]
+		},
+		{
+			"id": "task1736_194",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: [ < [ [ ( ) ( ( { < { < { { } } > } > } ) ) ] ] > ( ) { ( ) }",
+			"output": [
+				"]"
+			]
+		},
+		{
+			"id": "task1736_195",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: ( < > [ { [ [ ( [ ] ) [ < ( < > ) { [ ( { ( [ ( ( < ( ( < [ ] { < > } > [ ] ) ) > ) [ { } ] ) ] ) } ) ] } > ] ] ] } [ ] ] ) < [",
+			"output": [
+				"] >"
+			]
+		},
+		{
+			"id": "task1736_196",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: < ( {",
+			"output": [
+				"} ) >"
+			]
+		},
+		{
+			"id": "task1736_197",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: [ ( [",
+			"output": [
+				"] ) ]"
+			]
+		},
+		{
+			"id": "task1736_198",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: { { < { < > } > } [ ( < < > > ) [ { < ( ) > } ] ] [ ] } < ( { [ < [ { [ ( ) ] } ] > < { ( [ [ [ { } < > { ( < { [ ] } > ( ) ) } ] ] ] ) } > ] } )",
+			"output": [
+				">"
+			]
+		},
+		{
+			"id": "task1736_199",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: ( [ [ [ ( { ( ( < [ { < > } ] > { { [ ] } } ) ) } ( [ [ < > ] ] ) ) ] ] ] ) ( < > < [ ( ) ] > (",
+			"output": [
+				") )"
+			]
+		},
+		{
+			"id": "task1736_200",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: ( ) ( [ [ ] ] ) ( { [ { < { ( ) < [ [ < > { [ ( < ( < [ { < < ( [ ( ) ] [ ( < ( { [ ] } ) > ) ] [ < > ] ) > [ { ( < > ) } ] > } ] > ) > ) ] } ] ] > { } [ [ ] ] { } } > ( ( < > ) ) } ] }",
+			"output": [
+				")"
+			]
+		},
+		{
+			"id": "task1736_201",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: ( ( { ( ( { } ) ) ( ( [ ] ) ) } )",
+			"output": [
+				")"
+			]
+		},
+		{
+			"id": "task1736_202",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: [ < < > >",
+			"output": [
+				"]"
+			]
+		},
+		{
+			"id": "task1736_203",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: < [ [ { } ] ]",
+			"output": [
+				">"
+			]
+		},
+		{
+			"id": "task1736_204",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: ( ) [ ( [ < { { ( { } ) } } >",
+			"output": [
+				"] ) ]"
+			]
+		},
+		{
+			"id": "task1736_205",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: [ < > ] [ { < { } > { [ ( [ ( ) ] ) ]",
+			"output": [
+				"} } ]"
+			]
+		},
+		{
+			"id": "task1736_206",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: ( < ( [ < < [ ] > > ] )",
+			"output": [
+				"> )"
+			]
+		},
+		{
+			"id": "task1736_207",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: [ ] { [ [ < { { { } } } > ] ] < [ { }",
+			"output": [
+				"] > }"
+			]
+		},
+		{
+			"id": "task1736_208",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: ( [ ( { } ) { < ( ( [ ] ) ) >",
+			"output": [
+				"} ] )"
+			]
+		},
+		{
+			"id": "task1736_209",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: ( { { { { { < < ( { ( { { < < [ < [ [ ] ] > ] [ ] > [ [ ] ] > ( < [ { < > < [ ] > } ] > ) } } ) } ) > > } } }",
+			"output": [
+				"} } )"
+			]
+		},
+		{
+			"id": "task1736_210",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: [ < ( [ ] ) > ] { [ { }",
+			"output": [
+				"] }"
+			]
+		},
+		{
+			"id": "task1736_211",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: ( { [ { }",
+			"output": [
+				"] } )"
+			]
+		},
+		{
+			"id": "task1736_212",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: ( { [ { [ ] { [ [ ] ] } { ( ) } } { [ [ ( [ ] ) ] ] } ] } { < ( ) { [ [ ( ) { [ { { } } ] < > { < ( < { ( < ( [ ] ) > ) } > ) { [ ( < ( ) > ) ] } [ ] { } > } ( ) } ] [ ( ( { < > } ) ) ] ] } >",
+			"output": [
+				"} )"
+			]
+		},
+		{
+			"id": "task1736_213",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: < ( ( ( < > < [ [ ] ] > ) { } )",
+			"output": [
+				") >"
+			]
+		},
+		{
+			"id": "task1736_214",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: { [ { { { < > } }",
+			"output": [
+				"} ] }"
+			]
+		},
+		{
+			"id": "task1736_215",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: { { { < > } } < > < { { ( ) } } > { } } { < ( { [ < > ] [ ( ) < ( ) > { < ( ( ( ) ) ) > [ ] } ] < > ( < { } > ) }",
+			"output": [
+				") > }"
+			]
+		},
+		{
+			"id": "task1736_216",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: [ < > { < [ ] >",
+			"output": [
+				"} ]"
+			]
+		},
+		{
+			"id": "task1736_217",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: [ [ <",
+			"output": [
+				"> ] ]"
+			]
+		},
+		{
+			"id": "task1736_218",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: ( { }",
+			"output": [
+				")"
+			]
+		},
+		{
+			"id": "task1736_219",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: { [ [ < ( < { } > ) > ] ] [ [ ] ]",
+			"output": [
+				"}"
+			]
+		},
+		{
+			"id": "task1736_220",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: < {",
+			"output": [
+				"} >"
+			]
+		},
+		{
+			"id": "task1736_221",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: { < > } [ ( { ( { [ < > ] } ) ( ) } ) ] { [ < > ] } [ [ ( [ ]",
+			"output": [
+				") ] ]"
+			]
+		},
+		{
+			"id": "task1736_222",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: < < { { { < [ ( < > { ( ) } ) ] > } } }",
+			"output": [
+				"> >"
+			]
+		},
+		{
+			"id": "task1736_223",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: { < < ( )",
+			"output": [
+				"> > }"
+			]
+		},
+		{
+			"id": "task1736_224",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: [ ( ) <",
+			"output": [
+				"> ]"
+			]
+		},
+		{
+			"id": "task1736_225",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: [ { ( { [ < ( < [ ( ) ] > ) > ] } ) } ] [ ] [ ( { ( ) } ) ] < { ( ( ( ( ( < > ) ) ) ) ) [ < [ ( < > ) ] > [ [ ] ( ( { } { [ { < [ ] > } ] } < { } > < [ < > ] > [ ] ) ) ] ] } > { [ { ( )",
+			"output": [
+				"} ] }"
+			]
+		},
+		{
+			"id": "task1736_226",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: [ < { < [ ( < > ) ( ( [ [ ] ] ) ) ( ( { } ) ) { [ ] } < ( < > ) > ] > }",
+			"output": [
+				"> ]"
+			]
+		},
+		{
+			"id": "task1736_227",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: ( { < { { [ ] } < > [ ] } [ [ [ < [ [ ] ] > ] ] ] > } [ ] { { { { [ { } ] } ( < [ [ [ ] ] ] > ) < < ( { ( [ ] ) [ { { } } ] { [ ] } } ) [ [ { [ [ { ( { } ) [ ( ) { } ] { } } ] ] < > } ] ] > > }",
+			"output": [
+				"} } )"
+			]
+		},
+		{
+			"id": "task1736_228",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: < (",
+			"output": [
+				") >"
+			]
+		},
+		{
+			"id": "task1736_229",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: { [ < { < ( ( ) ) > } >",
+			"output": [
+				"] }"
+			]
+		},
+		{
+			"id": "task1736_230",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: [ ] [ ( [ [ ( ) ] ] ) < < [ ] > > < < >",
+			"output": [
+				"> ]"
+			]
+		},
+		{
+			"id": "task1736_231",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: ( { } ) { ( [ { ( ) } ] ( [ ] ) )",
+			"output": [
+				"}"
+			]
+		},
+		{
+			"id": "task1736_232",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: [ < > { { { } } { } } ] < { } [ { [ ] }",
+			"output": [
+				"] >"
+			]
+		},
+		{
+			"id": "task1736_233",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: { < > { { ( { } ) } { { ( ( ) ) } } }",
+			"output": [
+				"}"
+			]
+		},
+		{
+			"id": "task1736_234",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: { { ( [ ] ) { ( )",
+			"output": [
+				"} } }"
+			]
+		},
+		{
+			"id": "task1736_235",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: < ( < { [ { } < ( { ( < < < { [ ( [ ( [ { { < [ { } < ( ) > ] > } } ] ) ] ) ] } > < > > ( ( < { } > ) ) > ) } ) > ] } > )",
+			"output": [
+				">"
+			]
+		},
+		{
+			"id": "task1736_236",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: < { [ < > ] ( ( ( ( { { } } ) ) )",
+			"output": [
+				") } >"
+			]
+		},
+		{
+			"id": "task1736_237",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: [ < < [ [ ] ( ) { < > ( [ { } { < > } { } ] ) } [ [ [ ( [ ( ) [ [ { < [ { { } } < { { < ( ) > } } > ] > } ] ] ] ) ] < < [ [ ( < < ( ) > > ) ] ] > > [ ] ] ] ] < ( [ ] ) > { ( ( < { } > ) ) } > >",
+			"output": [
+				"]"
+			]
+		},
+		{
+			"id": "task1736_238",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: < { [ < > ]",
+			"output": [
+				"} >"
+			]
+		},
+		{
+			"id": "task1736_239",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: < [ { ( ( < ( ( ) ) > ) ) } ]",
+			"output": [
+				">"
+			]
+		},
+		{
+			"id": "task1736_240",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: < ( ) < > > { < > } { ( ) ( < ( ) > ) } < < { [ ] }",
+			"output": [
+				"> >"
+			]
+		},
+		{
+			"id": "task1736_241",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: [ ] [ { } ] ( ( )",
+			"output": [
+				")"
+			]
+		},
+		{
+			"id": "task1736_242",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: [ ] < { < > } > { (",
+			"output": [
+				") }"
+			]
+		},
+		{
+			"id": "task1736_243",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: < > < { { { [ ( ) ] } } } > ( { [ { ( [ ] { } ) } ]",
+			"output": [
+				"} )"
+			]
+		},
+		{
+			"id": "task1736_244",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: { ( <",
+			"output": [
+				"> ) }"
+			]
+		},
+		{
+			"id": "task1736_245",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: { ( { { { < ( < ( [ < < > > ] < > ) > ) > } [ ] }",
+			"output": [
+				"} ) }"
+			]
+		},
+		{
+			"id": "task1736_246",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: { < { { } } > } < { } > { < { { [ < [ [ ] ] > ] } } > } ( ) { { [ { [ { } ] } ] ( [ { } ] )",
+			"output": [
+				"} }"
+			]
+		},
+		{
+			"id": "task1736_247",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: ( ( < < < ( ( ) ) ( [ ] ) > > { [ ] }",
+			"output": [
+				"> ) )"
+			]
+		},
+		{
+			"id": "task1736_248",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: [ < { { } }",
+			"output": [
+				"> ]"
+			]
+		},
+		{
+			"id": "task1736_249",
+			"input": "Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: < < < > >",
+			"output": [
+				">"
+			]
+		}
+	]
+}

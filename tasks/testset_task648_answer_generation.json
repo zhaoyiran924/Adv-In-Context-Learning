@@ -1,0 +1,2029 @@
+{
+	"Contributors": [
+		"Frank Zhao"
+	],
+	"Categories": [
+		"Coreference Resolution"
+	],
+	"Definition": [
+		"You will see a sentence with a given pronoun and a question. Select the option that the pronoun refers to in the sentence. Answer with \"A\" or \"B\"."
+	],
+	"Positive Examples": [
+		{
+			"input": "This book introduced Shakespeare to Ovid; it was a fine selection of his writing., Pronoun: his, Question: (A) Shakespeare (B) Ovid",
+			"output": "B"
+		},
+		{
+			"input": "sentence: Joan made sure to thank Susan for all the help she had recieved., pronoun: she, options: (A) Joan (B) Susan",
+			"output": "A"
+		},
+		{
+			"input": "Madonna fired her trainer because she couldn't stand her boyfriend., Pronoun: her, Question: (A) Madonna (B) The trainer",
+			"output": "B"
+		},
+		{
+			"input": "The city councilmen refused the demonstrators a permit because they feared violence., Pronoun: they, Question: (A) The city councilmen (B) The demonstrators",
+			"output": "A"
+		}
+	],
+	"Negative Examples": [
+
+	],
+	"Instances": [
+		{
+			"id": "task648_0",
+			"input": "The city councilmen refused the demonstrators a permit because they feared violence., Pronoun: they, Question: (A) The city councilmen (B) The demonstrators",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_1",
+			"input": "The city councilmen refused the demonstrators a permit because they advocated violence., Pronoun: they, Question: (A) The city councilmen (B) The demonstrators",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_2",
+			"input": "The trophy doesn't fit into the brown suitcase because it is too large., Pronoun: it, Question: (A) the trophy (B) the suitcase",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_3",
+			"input": "The trophy doesn't fit into the brown suitcase because it is too small., Pronoun: it, Question: (A) the trophy (B) the suitcase",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_4",
+			"input": "Joan made sure to thank Susan for all the help she had recieved., Pronoun: she, Question: (A) Joan (B) Susan",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_5",
+			"input": "Joan made sure to thank Susan for all the help she had given., Pronoun: she, Question: (A) Joan (B) Susan",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_6",
+			"input": "Paul tried to call George on the phone, but he wasn't successful., Pronoun: he, Question: (A) Paul (B) George",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_7",
+			"input": "Paul tried to call George on the phone, but he wasn't available., Pronoun: he, Question: (A) Paul (B) George",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_8",
+			"input": "The lawyer asked the witness a question, but he was reluctant to repeat it., Pronoun: he, Question: (A) the lawyer (B) the witness",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_9",
+			"input": "The lawyer asked the witness a question, but he was reluctant to answer it., Pronoun: he, Question: (A) the lawyer (B) the witness",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_10",
+			"input": "The delivery truck zoomed by the school bus because it was going so fast., Pronoun: it, Question: (A) the delivery truck (B) the school bus",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_11",
+			"input": "The delivery truck zoomed by the school bus because it was going so slow., Pronoun: it, Question: (A) the delivery truck (B) the school bus",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_12",
+			"input": "Frank felt vindicated when his longtime rival Bill revealed that he was the winner of the competition., Pronoun: he, Question: (A) Frank (B) Bill",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_13",
+			"input": "Frank felt crushed when his longtime rival Bill revealed that he was the winner of the competition., Pronoun: he, Question: (A) Frank (B) Bill",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_14",
+			"input": "The man couldn't lift his son because he was so weak., Pronoun: he, Question: (A) The man (B) The son",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_15",
+			"input": "The man couldn't lift his son because he was so heavy., Pronoun: he, Question: (A) The man (B) The son",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_16",
+			"input": "The large ball crashed right through the table because it was made of steel., Pronoun: it, Question: (A) The large ball (B) The table",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_17",
+			"input": "The large ball crashed right through the table because it was made of styrofoam., Pronoun: it, Question: (A) The large ball (B) The table",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_18",
+			"input": "John couldn't see the stage with Billy in front of him because he is so short., Pronoun: he, Question: (A) John (B) Billy",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_19",
+			"input": "John couldn't see the stage with Billy in front of him because he is so tall., Pronoun: he, Question: (A) John (B) Billy",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_20",
+			"input": "Tom threw his schoolbag down to Ray after he reached the top of the stairs., Pronoun: he, Question: (A) Tom (B) Ray",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_21",
+			"input": "Tom threw his schoolbag down to Ray after he reached the bottom of the stairs., Pronoun: he, Question: (A) Tom (B) Ray",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_22",
+			"input": "Although they ran at about the same speed, Sue beat Sally because she had such a good start., Pronoun: she, Question: (A) Sue (B) Sally",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_23",
+			"input": "Although they ran at about the same speed, Sue beat Sally because she had such a bad start., Pronoun: she, Question: (A) Sue (B) Sally",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_24",
+			"input": "The sculpture rolled off the shelf because it wasn't anchored., Pronoun: it, Question: (A) The sculpture (B) The shelf",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_25",
+			"input": "The sculpture rolled off the shelf because it wasn't level., Pronoun: it, Question: (A) The sculpture (B) The shelf",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_26",
+			"input": "Sam's drawing was hung just above Tina's and it did look much better with another one below it., Pronoun: it, Question: (A) Sam's drawing (B) Tina's drawing",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_27",
+			"input": "Sam's drawing was hung just above Tina's and it did look much better with another one above it., Pronoun: it, Question: (A) Sam's drawing (B) Tina's drawing",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_28",
+			"input": "Anna did a lot better than her good friend Lucy on the test because she had studied so hard., Pronoun: she, Question: (A) Anna (B) Lucy",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_29",
+			"input": "Anna did a lot worse than her good friend Lucy on the test because she had studied so hard., Pronoun: she, Question: (A) Anna (B) Lucy",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_30",
+			"input": "The firemen arrived after the police because they were coming from so far away., Pronoun: they, Question: (A) The firemen (B) The police",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_31",
+			"input": "The firemen arrived before the police because they were coming from so far away., Pronoun: they, Question: (A) The firemen (B) The police",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_32",
+			"input": "Frank was upset with Tom because the toaster he had bought from him didn't work., Pronoun: he, Question: (A) Frank (B) Tom",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_33",
+			"input": "Frank was upset with Tom because the toaster he had sold him didn't work., Pronoun: he, Question: (A) Frank (B) Tom",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_34",
+			"input": "Jim yelled at Kevin because he was so upset., Pronoun: he, Question: (A) Jim (B) Kevin",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_35",
+			"input": "Jim comforted Kevin because he was so upset., Pronoun: he, Question: (A) Jim (B) Kevin",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_36",
+			"input": "The sack of potatoes had been placed above the bag of flour, so it had to be moved first., Pronoun: it, Question: (A) The sack of potatoes (B) The bag of flour",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_37",
+			"input": "The sack of potatoes had been placed below the bag of flour, so it had to be moved first., Pronoun: it, Question: (A) The sack of potatoes (B) The bag of flour",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_38",
+			"input": "Pete envies Martin although he is very successful., Pronoun: he, Question: (A) Pete (B) Martin",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_39",
+			"input": "Pete envies Martin because he is very successful., Pronoun: he, Question: (A) Pete (B) Martin",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_40",
+			"input": "The older students were bullying the younger ones, so we punished them ., Pronoun: them, Question: (A) The older students (B) The younger students",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_41",
+			"input": "The older students were bullying the younger ones, so we rescued them ., Pronoun: them, Question: (A) The older students (B) The younger students",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_42",
+			"input": "I poured water from the bottle into the cup until it was empty., Pronoun: it, Question: (A) the bottle (B) the cup",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_43",
+			"input": "I poured water from the bottle into the cup until it was full., Pronoun: it, Question: (A) the bottle (B) the cup",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_44",
+			"input": "Susan knows all about Ann's personal problems because she is nosy., Pronoun: she, Question: (A) Susan (B) Ann",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_45",
+			"input": "Susan knows all about Ann's personal problems because she is indiscreet., Pronoun: she, Question: (A) Susan (B) Ann",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_46",
+			"input": "Sid explained his theory to Mark but he couldn't convince him., Pronoun: he, Question: (A) Sid (B) Mark",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_47",
+			"input": "Sid explained his theory to Mark but he couldn't understand him., Pronoun: he, Question: (A) Sid (B) Mark",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_48",
+			"input": "Susan knew that Ann's son had been in a car accident, so she told her about it., Pronoun: she, Question: (A) Susan (B) Ann",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_49",
+			"input": "Susan knew that Ann's son had been in a car accident, because she told her about it., Pronoun: she, Question: (A) Susan (B) Ann",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_50",
+			"input": "Joe's uncle can still beat him at tennis, even though he is 30 years younger., Pronoun: he, Question: (A) Joe (B) Joe's uncle",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_51",
+			"input": "Joe's uncle can still beat him at tennis, even though he is 30 years older., Pronoun: he, Question: (A) Joe (B) Joe's uncle",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_52",
+			"input": "The painting in Mark's living room shows an oak tree. It is to the right of the bookcase., Pronoun: It, Question: (A) The painting (B) The oak tree",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_53",
+			"input": "The painting in Mark's living room shows an oak tree. It is to the right of a house., Pronoun: It, Question: (A) The painting (B) The oak tree",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_54",
+			"input": "There is a gap in the wall. You can see the garden through it ., Pronoun: it, Question: (A) The gap (B) The wall",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_55",
+			"input": "There is a gap in the wall. You can see the garden behind it ., Pronoun: it, Question: (A) The gap (B) The wall",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_56",
+			"input": "The drain is clogged with hair. It has to be cleaned., Pronoun: It, Question: (A) The drain (B) The hair",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_57",
+			"input": "The drain is clogged with hair. It has to be removed., Pronoun: It, Question: (A) The drain (B) The hair",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_58",
+			"input": "My meeting started at 4:00 and I needed to catch the train at 4:30,  so there wasn't much time. Luckily, it was short, so it worked out., Pronoun: it, Question: (A) The meeting (B) The train",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_59",
+			"input": "My meeting started at 4:00 and I needed to catch the train at 4:30,  so there wasn't much time. Luckily, it was delayed, so it worked out., Pronoun: it, Question: (A) The meeting (B) The train",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_60",
+			"input": "There is a pillar between me and the stage, and I can't see around it ., Pronoun: it, Question: (A) The pillar (B) The stage",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_61",
+			"input": "There is a pillar between me and the stage, and I can't see it ., Pronoun: it, Question: (A) The pillar (B) The stage",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_62",
+			"input": "They broadcast an announcement, but a subway came into the  station and I couldn't hear it ., Pronoun: it, Question: (A) The announcement (B) The subway",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_63",
+			"input": "They broadcast an announcement, but a subway came into the  station and I couldn't hear over it ., Pronoun: it, Question: (A) The announcement (B) The subway",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_64",
+			"input": "In the middle of the outdoor concert, the rain started falling, but it continued until 10., Pronoun: it, Question: (A) The concert (B) The rain",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_65",
+			"input": "In the middle of the outdoor concert, the rain started falling, and it continued until 10., Pronoun: it, Question: (A) The concert (B) The rain",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_66",
+			"input": "I used an old rag to clean the knife, and then I put it in the trash., Pronoun: it, Question: (A) The rag (B) The knife",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_67",
+			"input": "I used an old rag to clean the knife, and then I put it in the drawer., Pronoun: it, Question: (A) The rag (B) The knife",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_68",
+			"input": "Ann asked Mary what time the library closes, because she had forgotten., Pronoun: she, Question: (A) Ann (B) Mary",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_69",
+			"input": "Ann asked Mary what time the library closes, but she had forgotten., Pronoun: she, Question: (A) Ann (B) Mary",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_70",
+			"input": "I took the water bottle out of the backpack so that it would be handy., Pronoun: it, Question: (A) The water bottle (B) The backpack",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_71",
+			"input": "I took the water bottle out of the backpack so that it would be lighter., Pronoun: it, Question: (A) The water bottle (B) The backpack",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_72",
+			"input": "I couldn't put the pot on the shelf because it was too tall., Pronoun: it, Question: (A) The pot (B) The shelf",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_73",
+			"input": "I couldn't put the pot on the shelf because it was too high., Pronoun: it, Question: (A) The pot (B) The shelf",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_74",
+			"input": "I'm sure that my map will show this building; it is very good., Pronoun: it, Question: (A) The map (B) The building",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_75",
+			"input": "I'm sure that my map will show this building; it is very famous., Pronoun: it, Question: (A) The map (B) The building",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_76",
+			"input": "Bob paid for Charlie's college education. He is very generous., Pronoun: He, Question: (A) Bob (B) Charlie",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_77",
+			"input": "Bob paid for Charlie's college education. He is very grateful., Pronoun: He, Question: (A) Bob (B) Charlie",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_78",
+			"input": "Bob paid for Charlie's college education, but now Charlie acts as though it never happened. He is very hurt., Pronoun: He, Question: (A) Bob (B) Charlie",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_79",
+			"input": "Bob paid for Charlie's college education, but now Charlie acts as though it never happened. He is very ungrateful., Pronoun: He, Question: (A) Bob (B) Charlie",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_80",
+			"input": "Bob was playing cards with Adam and was way ahead. If Adam hadn't had a sudden run of good luck, he would have won., Pronoun: he, Question: (A) Bob (B) Adam",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_81",
+			"input": "Bob was playing cards with Adam and was way ahead. If Adam hadn't had a sudden run of good luck, he would have lost., Pronoun: he, Question: (A) Bob (B) Adam",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_82",
+			"input": "Adam can't leave work here until Bob arrives to replace him. If Bob had  left home for work on time, he would be gone by this time., Pronoun: he, Question: (A) Adam (B) Bob",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_83",
+			"input": "Adam can't leave work here until Bob arrives to replace him. If Bob had  left home for work on time, he would be here by this time., Pronoun: he, Question: (A) Adam (B) Bob",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_84",
+			"input": "If the con artist has succeeded in fooling Sam, he would have gotten a lot of money., Pronoun: he, Question: (A) The con artist (B) Sam",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_85",
+			"input": "If the con artist has succeeded in fooling Sam, he would have lost a lot of money., Pronoun: he, Question: (A) The con artist (B) Sam",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_86",
+			"input": "It was a summer afternoon, and the dog was sitting in the middle of the lawn. After a while, it got up and moved to a spot under the tree,  because it was hot., Pronoun: it, Question: (A) The dog (B) The spot under the tree",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_87",
+			"input": "It was a summer afternoon, and the dog was sitting in the middle of the lawn. After a while, it got up and moved to a spot under the tree,  because it was cooler., Pronoun: it, Question: (A) The dog (B) The spot under the tree",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_88",
+			"input": "The cat was lying by the mouse hole waiting for the mouse, but it was too impatient., Pronoun: it, Question: (A) The cat (B) The mouse",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_89",
+			"input": "The cat was lying by the mouse hole waiting for the mouse, but it was too cautious., Pronoun: it, Question: (A) The cat (B) The mouse",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_90",
+			"input": "Anne gave birth to a daughter last month. She is a very charming woman., Pronoun: She, Question: (A) Anne (B) Anne's daughter",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_91",
+			"input": "Anne gave birth to a daughter last month. She is a very charming baby., Pronoun: She, Question: (A) Anne (B) Anne's daughter",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_92",
+			"input": "Alice tried frantically to stop her daughter from chatting at the party, leaving us to wonder why she was behaving so strangely., Pronoun: she, Question: (A) Alice (B) Alice's daughter",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_93",
+			"input": "Alice tried frantically to stop her daughter from barking at the party, leaving us to wonder why she was behaving so strangely., Pronoun: she, Question: (A) Alice (B) Alice's daughter",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_94",
+			"input": "I saw Jim yelling at some guy in a military uniform with a huge red  beard. I don't know why he was, but he looked very unhappy., Pronoun: he, Question: (A) Jim (B) the guy in uniform",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_95",
+			"input": "I saw Jim yelling at some guy in a military uniform with a huge red  beard. I don't know who he was, but he looked very unhappy., Pronoun: he, Question: (A) Jim (B) the guy in uniform",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_96",
+			"input": "The fish ate the worm. It was hungry., Pronoun: It, Question: (A) The fish (B) The worm",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_97",
+			"input": "The fish ate the worm. It was tasty., Pronoun: It, Question: (A) The fish (B) The worm",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_98",
+			"input": "I was trying to open the lock with the key, but someone had filled the  keyhole with chewing gum, and I couldn't get it in., Pronoun: it, Question: (A) The key (B) The chewing gum",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_99",
+			"input": "I was trying to open the lock with the key, but someone had filled the  keyhole with chewing gum, and I couldn't get it out., Pronoun: it, Question: (A) The key (B) The chewing gum",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_100",
+			"input": "The dog chased the cat, which ran up a tree. It waited at the bottom., Pronoun: It, Question: (A) The dog (B) The cat",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_101",
+			"input": "The dog chased the cat, which ran up a tree. It waited at the top., Pronoun: It, Question: (A) The dog (B) The cat",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_102",
+			"input": "In the storm, the tree fell down and crashed through the roof of my  house. Now, I have to get it removed., Pronoun: it, Question: (A) The tree (B) The roof",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_103",
+			"input": "In the storm, the tree fell down and crashed through the roof of my  house. Now, I have to get it repaired., Pronoun: it, Question: (A) The tree (B) The roof",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_104",
+			"input": "The customer walked into the bank and stabbed one of the tellers. He was immediately taken to the police station., Pronoun: He, Question: (A) The customer (B) The teller",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_105",
+			"input": "The customer walked into the bank and stabbed one of the tellers. He was immediately taken to the hospital., Pronoun: He, Question: (A) The customer (B) The teller",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_106",
+			"input": "John was doing research in the library when he heard a man humming and  whistling. He was very annoyed., Pronoun: He, Question: (A) John (B) The man",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_107",
+			"input": "John was doing research in the library when he heard a man humming and  whistling. He was very annoying., Pronoun: He, Question: (A) John (B) The man",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_108",
+			"input": "John was jogging through the park when he saw a man juggling watermelons. He was very impressed., Pronoun: He, Question: (A) John (B) The juggler",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_109",
+			"input": "John was jogging through the park when he saw a man juggling watermelons. He was very impressive., Pronoun: He, Question: (A) John (B) The juggler",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_110",
+			"input": "Bob collapsed on the sidewalk. Soon he saw Carl coming to help. He was very ill., Pronoun: He, Question: (A) Bob (B) Carl",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_111",
+			"input": "Bob collapsed on the sidewalk. Soon he saw Carl coming to help. He was very concerned., Pronoun: He, Question: (A) Bob (B) Carl",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_112",
+			"input": "Sam and Amy are passionately in love, but Amy's parents are unhappy about it, because they are fifteen., Pronoun: they, Question: (A) Sam and Amy (B) Amy's parents",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_113",
+			"input": "Sam and Amy are passionately in love, but Amy's parents are unhappy about it, because they are snobs., Pronoun: they, Question: (A) Sam and Amy (B) Amy's parents",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_114",
+			"input": "Mark told Pete many lies about himself, which Pete included in his book. He should have been more  truthful., Pronoun: He, Question: (A) Mark (B) Pete",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_115",
+			"input": "Mark told Pete many lies about himself, which Pete included in his book. He should have been more  skeptical., Pronoun: He, Question: (A) Mark (B) Pete",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_116",
+			"input": "Joe has sold his house and bought a new one a few miles away. He will be moving out of it on Thursday., Pronoun: it, Question: (A) The old house (B) The new house",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_117",
+			"input": "Joe has sold his house and bought a new one a few miles away. He will be moving into it on Thursday., Pronoun: it, Question: (A) The old house (B) The new house",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_118",
+			"input": "Many people start to read Paul's books and can't put them down. They are gripped because Paul writes so well., Pronoun: They, Question: (A) People (B) Paul's books",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_119",
+			"input": "Many people start to read Paul's books and can't put them down. They are popular because Paul writes so well., Pronoun: They, Question: (A) People (B) Paul's books",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_120",
+			"input": "Mary took out her flute and played one of her favorite pieces. She has had it since she was a child., Pronoun: it, Question: (A) The flute (B) The piece",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_121",
+			"input": "Mary took out her flute and played one of her favorite pieces. She has loved it since she was a child., Pronoun: it, Question: (A) The flute (B) The piece",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_122",
+			"input": "Sam pulled up a chair to the piano, but it was broken, so he had to stand instead., Pronoun: it, Question: (A) The chair (B) The piano",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_123",
+			"input": "Sam pulled up a chair to the piano, but it was broken, so he had to sing instead., Pronoun: it, Question: (A) The chair (B) The piano",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_124",
+			"input": "Since it was raining, I carried the newspaper in my backpack to keep it dry., Pronoun: it, Question: (A) The newspaper (B) The backpack",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_125",
+			"input": "Since it was raining, I carried the newspaper over my backpack to keep it dry., Pronoun: it, Question: (A) The newspaper (B) The backpack",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_126",
+			"input": "Sara borrowed the book from the library because she needs it for an article she is working on. She reads it when she gets home from work., Pronoun: it, Question: (A) The book (B) The article",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_127",
+			"input": "Sara borrowed the book from the library because she needs it for an article she is working on. She writes it when she gets home from work., Pronoun: it, Question: (A) The book (B) The article",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_128",
+			"input": "This morning, Joey built a sand castle on the beach, and put a toy  flag in the highest tower, but this afternoon the tide  knocked it down., Pronoun: it, Question: (A) The sand castle (B) The flag",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_129",
+			"input": "This morning, Joey built a sand castle on the beach, and put a toy  flag in the highest tower, but this afternoon the wind  knocked it down., Pronoun: it, Question: (A) The sand castle (B) The flag",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_130",
+			"input": "Jane knocked on Susan's door, but there was no answer. She was disappointed., Pronoun: She, Question: (A) Jane (B) Susan",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_131",
+			"input": "Jane knocked on Susan's door, but there was no answer. She was out., Pronoun: She, Question: (A) Jane (B) Susan",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_132",
+			"input": "Jane knocked on the door, and Susan answered it. She invited her to come out., Pronoun: She, Question: (A) Jane (B) Susan",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_133",
+			"input": "Jane knocked on the door, and Susan answered it. She invited her to come in., Pronoun: She, Question: (A) Jane (B) Susan",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_134",
+			"input": "Sam took French classes from Adam, because he was eager to speak it fluently., Pronoun: he, Question: (A) Sam (B) Adam",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_135",
+			"input": "Sam took French classes from Adam, because he was known to speak it fluently., Pronoun: he, Question: (A) Sam (B) Adam",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_136",
+			"input": "The path to the lake was blocked, so we couldn't use it ., Pronoun: it, Question: (A) The path (B) The lake",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_137",
+			"input": "The path to the lake was blocked, so we couldn't reach it ., Pronoun: it, Question: (A) The path (B) The lake",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_138",
+			"input": "The sun was covered by a thick cloud all morning, but luckily, by the time the picnic started, it was out., Pronoun: it, Question: (A) The sun (B) The cloud",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_139",
+			"input": "The sun was covered by a thick cloud all morning, but luckily, by the time the picnic started, it was gone., Pronoun: it, Question: (A) The sun (B) The cloud",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_140",
+			"input": "We went to the lake, because a shark had been seen at the ocean beach, so it was a safer place to swim., Pronoun: it, Question: (A) The lake (B) The ocean beach",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_141",
+			"input": "We went to the lake, because a shark had been seen at the ocean beach, so it was a dangerous place to swim., Pronoun: it, Question: (A) The lake (B) The ocean beach",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_142",
+			"input": "Sam tried to paint a picture of shepherds with sheep, but they ended up looking more like golfers., Pronoun: they, Question: (A) The shepherds (B) The sheep",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_143",
+			"input": "Sam tried to paint a picture of shepherds with sheep, but they ended up looking more like dogs., Pronoun: they, Question: (A) The shepherds (B) The sheep",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_144",
+			"input": "Mary tucked her daughter Anne into bed, so that she could work., Pronoun: she, Question: (A) Mary (B) Mary's daughter",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_145",
+			"input": "Mary tucked her daughter Anne into bed, so that she could sleep., Pronoun: she, Question: (A) Mary (B) Mary's daughter",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_146",
+			"input": "Fred and Alice had very warm down coats, but they were not prepared for the cold in Alaska., Pronoun: they, Question: (A) Fred and Alice (B) coats",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_147",
+			"input": "Fred and Alice had very warm down coats, but they were not enough for the cold in Alaska., Pronoun: they, Question: (A) Fred and Alice (B) coats",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_148",
+			"input": "Thomson visited Cooper's grave in 1765. At that date he had been travelling for five years., Pronoun: he, Question: (A) Thomson (B) Cooper",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_149",
+			"input": "Thomson visited Cooper's grave in 1765. At that date he had been dead for five years., Pronoun: he, Question: (A) Thomson (B) Cooper",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_150",
+			"input": "Jackson was greatly influenced by Arnold, though he lived two centuries later., Pronoun: he, Question: (A) Jackson (B) Arnold",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_151",
+			"input": "Jackson was greatly influenced by Arnold, though he lived two centuries earlier., Pronoun: he, Question: (A) Jackson (B) Arnold",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_152",
+			"input": "I can't cut that tree down with that axe; it is too thick., Pronoun: it, Question: (A) The tree (B) The axe",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_153",
+			"input": "I can't cut that tree down with that axe; it is too small., Pronoun: it, Question: (A) The tree (B) The axe",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_154",
+			"input": "The foxes are getting in at night and attacking the chickens. I shall have to kill them ., Pronoun: them, Question: (A) The foxes (B) The chickens",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_155",
+			"input": "The foxes are getting in at night and attacking the chickens. I shall have to guard them ., Pronoun: them, Question: (A) The foxes (B) The chickens",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_156",
+			"input": "The foxes are getting in at night and attacking the chickens. They have gotten very bold., Pronoun: They, Question: (A) The foxes (B) The chickens",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_157",
+			"input": "The foxes are getting in at night and attacking the chickens. They have gotten very nervous., Pronoun: They, Question: (A) The foxes (B) The chickens",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_158",
+			"input": "Fred covered his eyes with his hands, because the wind was blowing sand around. He opened them when the wind stopped., Pronoun: them, Question: (A) His eyes (B) His hands",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_159",
+			"input": "Fred covered his eyes with his hands, because the wind was blowing sand around. He lowered them when the wind stopped., Pronoun: them, Question: (A) His eyes (B) His hands",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_160",
+			"input": "The actress used to be named Terpsichore, but she changed it to Tina a  few years ago, because she figured it was too hard to pronounce., Pronoun: it, Question: (A) Terpsichore (B) Tina",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_161",
+			"input": "The actress used to be named Terpsichore, but she changed it to Tina a  few years ago, because she figured it was easier to pronounce., Pronoun: it, Question: (A) Terpsichore (B) Tina",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_162",
+			"input": "Fred watched TV while George went out to buy groceries. After an hour he got up., Pronoun: he, Question: (A) Fred (B) George",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_163",
+			"input": "Fred watched TV while George went out to buy groceries. After an hour he got back., Pronoun: he, Question: (A) Fred (B) George",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_164",
+			"input": "Fred was supposed to run the dishwasher, but he put it off,  because he wanted to watch TV. But the show turned out to be boring, so he changed his mind and turned it on., Pronoun: it, Question: (A) The dishwasher (B) The TV",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_165",
+			"input": "Fred was supposed to run the dishwasher, but he put it off,  because he wanted to watch TV. But the show turned out to be boring, so he changed his mind and turned it off., Pronoun: it, Question: (A) The dishwasher (B) The TV",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_166",
+			"input": "Fred is the only man still alive who remembers my great-grandfather. He is a remarkable man., Pronoun: He, Question: (A) Fred (B) My great-grandfather",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_167",
+			"input": "Fred is the only man still alive who remembers my great-grandfather. He was a remarkable man., Pronoun: He, Question: (A) Fred (B) My great-grandfather",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_168",
+			"input": "Fred is the only man alive who still remembers my father as an infant. When Fred first saw my father, he was twelve years old., Pronoun: he, Question: (A) Fred (B) My father",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_169",
+			"input": "Fred is the only man alive who still remembers my father as an infant. When Fred first saw my father, he was twelve months old., Pronoun: he, Question: (A) Fred (B) My father",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_170",
+			"input": "In July, Kamtchatka declared war on Yakutsk. Since Yakutsk's army was much  better equipped and ten times larger, they were defeated within weeks., Pronoun: they, Question: (A) Kamchatka (B) Yakutsk",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_171",
+			"input": "In July, Kamtchatka declared war on Yakutsk. Since Yakutsk's army was much  better equipped and ten times larger, they were victorious within weeks., Pronoun: they, Question: (A) Kamchatka (B) Yakutsk",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_172",
+			"input": "Look! There is a minnow swimming right below that duck! It had better get away to safety fast!, Pronoun: It, Question: (A) The minnow (B) The duck",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_173",
+			"input": "Look! There is a shark swimming right below that duck! It had better get away to safety fast!, Pronoun: It, Question: (A) The shark (B) The duck",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_174",
+			"input": "Archaeologists have concluded that humans lived in Laputa 20,000 years ago. They hunted for evidence on the river banks., Pronoun: They, Question: (A) Archaeologists (B) Prehistoric humans",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_175",
+			"input": "Archaeologists have concluded that humans lived in Laputa 20,000 years ago. They hunted for deer on the river banks., Pronoun: They, Question: (A) Archaeologists (B) Prehistoric humans",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_176",
+			"input": "The scientists are studying three species of fish that have recently been found living in the Indian Ocean. They began two years ago., Pronoun: They, Question: (A) The scientists (B) The fish",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_177",
+			"input": "The scientists are studying three species of fish that have recently been found living in the Indian Ocean. They appeared two years ago., Pronoun: They, Question: (A) The scientists (B) The fish",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_178",
+			"input": "The journalists interviewed the stars of the new movie. They were very persistent, so the interview lasted for a long time., Pronoun: They, Question: (A) The journalists (B) The stars",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_179",
+			"input": "The journalists interviewed the stars of the new movie. They were very cooperative, so the interview lasted for a long time., Pronoun: They, Question: (A) The journalists (B) The stars",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_180",
+			"input": "The police arrested all of the gang members. They were trying to stop the drug trade in the neighborhood., Pronoun: They, Question: (A) The police (B) The gang members",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_181",
+			"input": "The police arrested all of the gang members. They were trying to run the drug trade in the neighborhood., Pronoun: They, Question: (A) The police (B) The gang members",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_182",
+			"input": "I put the cake away in the refrigerator. It has a lot of butter in it., Pronoun: It, Question: (A) The cake (B) The refrigerator",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_183",
+			"input": "I put the cake away in the refrigerator. It has a lot of leftovers in it., Pronoun: It, Question: (A) The cake (B) The refrigerator",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_184",
+			"input": "Sam broke both his ankles and he's walking with crutches. But a month or so from now they should be better., Pronoun: they, Question: (A) The ankles (B) The crutches",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_185",
+			"input": "Sam broke both his ankles and he's walking with crutches. But a month or so from now they should be unnecessary., Pronoun: they, Question: (A) The ankles (B) The crutches",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_186",
+			"input": "When the sponsors of the bill got to the town hall, they were surprised to find that the room was full of opponents. They were very much in the minority., Pronoun: They, Question: (A) The sponsors (B) The opponents",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_187",
+			"input": "When the sponsors of the bill got to the town hall, they were surprised to find that the room was full of opponents. They were very much in the majority., Pronoun: They, Question: (A) The sponsors (B) The opponents",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_188",
+			"input": "Everyone really loved the oatmeal cookies; only a few people liked the  chocolate chip cookies. Next time, we should make more of them ., Pronoun: them, Question: (A) The oatmeal cookies (B) The chocolate chip cookies",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_189",
+			"input": "Everyone really loved the oatmeal cookies; only a few people liked the  chocolate chip cookies. Next time, we should make fewer of them ., Pronoun: them, Question: (A) The oatmeal cookies (B) The chocolate chip cookies",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_190",
+			"input": "We had hoped to place copies of our newsletter on all the chairs in the auditorium, but there were simply not enough of them ., Pronoun: them, Question: (A) copies of the newsletter (B) chairs",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_191",
+			"input": "We had hoped to place copies of our newsletter on all the chairs in the auditorium, but there were simply too many of them ., Pronoun: them, Question: (A) copies of the newsletter (B) chairs",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_192",
+			"input": "I stuck a pin through a carrot. When I pulled the pin out, it left a hole., Pronoun: it, Question: (A) The pin (B) The carrot",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_193",
+			"input": "I stuck a pin through a carrot. When I pulled the pin out, it had a hole., Pronoun: it, Question: (A) The pin (B) The carrot",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_194",
+			"input": "I couldn't find a spoon, so I tried using a pen to stir my  coffee. But that turned out to be a bad idea, because it got full of coffee., Pronoun: it, Question: (A) The pen (B) The coffee",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_195",
+			"input": "I couldn't find a spoon, so I tried using a pen to stir my  coffee. But that turned out to be a bad idea, because it got full of ink., Pronoun: it, Question: (A) The pen (B) The coffee",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_196",
+			"input": "Steve follows Fred's example in everything. He admires him hugely., Pronoun: He, Question: (A) Steve (B) Fred",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_197",
+			"input": "Steve follows Fred's example in everything. He influences him hugely., Pronoun: He, Question: (A) Steve (B) Fred",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_198",
+			"input": "The table won't fit through the doorway because it is too wide., Pronoun: it, Question: (A) The table (B) The doorway",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_199",
+			"input": "The table won't fit through the doorway because it is too narrow., Pronoun: it, Question: (A) The table (B) The doorway",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_200",
+			"input": "Grace was happy to trade me her sweater for my jacket. She thinks it looks dowdy on her., Pronoun: it, Question: (A) The sweater (B) The jacket",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_201",
+			"input": "Grace was happy to trade me her sweater for my jacket. She thinks it looks great on her., Pronoun: it, Question: (A) The sweater (B) The jacket",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_202",
+			"input": "John hired Bill to take care of him ., Pronoun: him, Question: (A) John (B) Bill",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_203",
+			"input": "John hired himself out to Bill to take care of him ., Pronoun: him, Question: (A) John (B) Bill",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_204",
+			"input": "John promised Bill to leave, so an hour later he left., Pronoun: he, Question: (A) John (B) Bill",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_205",
+			"input": "John ordered Bill to leave, so an hour later he left., Pronoun: he, Question: (A) John (B) Bill",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_206",
+			"input": "Sam Goodman's biography of the Spartan general Xenophanes conveys a vivid sense of the difficulties he faced in his research., Pronoun: he, Question: (A) Goodman (B) Xenophanes",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_207",
+			"input": "Sam Goodman's biography of the Spartan general Xenophanes conveys a vivid sense of the difficulties he faced in his childhood., Pronoun: he, Question: (A) Goodman (B) Xenophanes",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_208",
+			"input": "Emma's mother had died long ago, and her education had been managed by an excellent woman as governess., Pronoun: her, Question: (A) Emma (B) Emma's mother",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_209",
+			"input": "Emma's mother had died long ago, and her place had been taken by an excellent woman as governess., Pronoun: her, Question: (A) Emma (B) Emma's mother",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_210",
+			"input": "Jane knocked on Susan's door but she did not get an answer., Pronoun: she, Question: (A) Jane (B) Susan",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_211",
+			"input": "Jane knocked on Susan's door but she did not answer., Pronoun: she, Question: (A) Jane (B) Susan",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_212",
+			"input": "Joe paid the detective after he received the final report on the case., Pronoun: he, Question: (A) Joe (B) the detective",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_213",
+			"input": "Joe paid the detective after he delivered the final report on the case., Pronoun: he, Question: (A) Joe (B) the detective",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_214",
+			"input": "Beth didn't get angry with Sally, who had cut her off, because she stopped and counted to ten., Pronoun: she, Question: (A) Beth (B) Sally",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_215",
+			"input": "Beth didn't get angry with Sally, who had cut her off, because she stopped and apologized., Pronoun: she, Question: (A) Beth (B) Sally",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_216",
+			"input": "Jim signaled the barman and gestured toward his empty glass, Pronoun: his, Question: (A) Jim (B) The barman",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_217",
+			"input": "Jim signaled the barman and gestured toward his bathroom key., Pronoun: his, Question: (A) Jim (B) The barman",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_218",
+			"input": "Dan took the rear seat while Bill claimed the front because his \"Dibs!\" was slow., Pronoun: his, Question: (A) Dan (B) Bill",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_219",
+			"input": "Dan took the rear seat while Bill claimed the front because his \"Dibs!\" was quicker., Pronoun: his, Question: (A) Dan (B) Bill",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_220",
+			"input": "Tom said \"Check\" to Ralph as he moved his bishop., Pronoun: his, Question: (A) Tom (B) Ralph",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_221",
+			"input": "Tom said \"Check\" to Ralph as he took his bishop., Pronoun: his, Question: (A) Tom (B) Ralph",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_222",
+			"input": "As Andrea in the crop duster passed over Susan, she could see the landing strip., Pronoun: she, Question: (A) Andrea (B) Susan",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_223",
+			"input": "As Andrea in the crop duster passed over Susan, she could see the landing gear., Pronoun: she, Question: (A) Andrea (B) Susan",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_224",
+			"input": "Tom gave Ralph a lift to school so he wouldn't have to drive alone., Pronoun: he, Question: (A) Tom (B) Ralph",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_225",
+			"input": "Tom gave Ralph a lift to school so he wouldn't have to walk., Pronoun: he, Question: (A) Tom (B) Ralph",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_226",
+			"input": "Bill passed the half-empty plate to John because he was full., Pronoun: he, Question: (A) Bill (B) John",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_227",
+			"input": "Bill passed the half-empty plate to John because he was hungry., Pronoun: he, Question: (A) Bill (B) John",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_228",
+			"input": "Bill passed the gameboy to John because his turn was over., Pronoun: his, Question: (A) Bill (B) John",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_229",
+			"input": "Bill passed the gameboy to John because his turn was next., Pronoun: his, Question: (A) Bill (B) John",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_230",
+			"input": "The man lifted the boy onto his shoulders., Pronoun: his, Question: (A) The man (B) The boy",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_231",
+			"input": "The man lifted the boy onto his bunk bed., Pronoun: his, Question: (A) The man (B) The boy",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_232",
+			"input": "Stretching her back, the woman smiled at the girl., Pronoun: her, Question: (A) The woman (B) The girl",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_233",
+			"input": "Patting her back, the woman smiled at the girl., Pronoun: her, Question: (A) The woman (B) The girl",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_234",
+			"input": "Billy cried because Toby wouldn't accept his toy., Pronoun: his, Question: (A) Billy (B) Toby",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_235",
+			"input": "Billy cried because Toby wouldn't share his toy., Pronoun: his, Question: (A) Billy (B) Toby",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_236",
+			"input": "Lily spoke to Donna, breaking her silence., Pronoun: her, Question: (A) Lily (B) Donna",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_237",
+			"input": "Lily spoke to Donna, breaking her concentration., Pronoun: her, Question: (A) Lily (B) Donna",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_238",
+			"input": "When Tommy dropped his ice cream, Timmy giggled, so father gave him a sympathetic look., Pronoun: him, Question: (A) Tommy (B) Timmy",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_239",
+			"input": "When Tommy dropped his ice cream, Timmy giggled, so father gave him a stern look., Pronoun: him, Question: (A) Tommy (B) Timmy",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_240",
+			"input": "As Ollie carried Tommy up the long winding steps, his legs ached., Pronoun: his, Question: (A) Ollie (B) Tommy",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_241",
+			"input": "As Ollie carried Tommy up the long winding steps, his legs dangled., Pronoun: his, Question: (A) Ollie (B) Tommy",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_242",
+			"input": "The father carried the sleeping boy in his arms, Pronoun: his, Question: (A) The father (B) The boy",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_243",
+			"input": "The father carried the sleeping boy in his bassinet., Pronoun: his, Question: (A) The father (B) The boy",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_244",
+			"input": "The woman held the girl against her chest, Pronoun: her, Question: (A) The woman (B) The girl",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_245",
+			"input": "The woman held the girl against her will., Pronoun: her, Question: (A) The woman (B) The girl",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_246",
+			"input": "Pam's parents came home and found her having sex with her boyfriend, Paul. They were furious about it., Pronoun: They, Question: (A) Pam's parents (B) Pam and Paul",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_247",
+			"input": "Pam's parents came home and found her having sex with her boyfriend, Paul. They were embarrassed about it., Pronoun: They, Question: (A) Pam's parents (B) Pam and Paul",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_248",
+			"input": "Dr. Adams informed Kate that she had retired and presented several options for future treatment., Pronoun: she, Question: (A) Dr. Adams (B) Kate",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_249",
+			"input": "Dr. Adams informed Kate that she had cancer and presented several options for future treatment., Pronoun: she, Question: (A) Dr. Adams (B) Kate",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_250",
+			"input": "Dan had to stop Bill from toying with the injured bird. He is very compassionate., Pronoun: He, Question: (A) Dan (B) Bill",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_251",
+			"input": "Dan had to stop Bill from toying with the injured bird. He is very cruel., Pronoun: He, Question: (A) Dan (B) Bill",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_252",
+			"input": "George got free tickets to the play, but he gave them to Eric, even though he was particularly eager to see it., Pronoun: he, Question: (A) George (B) Eric",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_253",
+			"input": "George got free tickets to the play, but he gave them to Eric, because he was particularly eager to see it., Pronoun: he, Question: (A) George (B) Eric",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_254",
+			"input": "George got free tickets to the play, but he gave them to Eric, because he was not particularly eager to see it., Pronoun: he, Question: (A) George (B) Eric",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_255",
+			"input": "Jane gave Joan candy because she wasn't hungry., Pronoun: she, Question: (A) Jane (B) Joan",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_256",
+			"input": "Jane gave Joan candy because she was hungry., Pronoun: she, Question: (A) Jane (B) Joan",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_257",
+			"input": "I tried to paint a picture of an orchard, with lemons in the lemon trees,  but they came out looking more like light bulbs., Pronoun: they, Question: (A) lemons (B) lemon trees",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_258",
+			"input": "I tried to paint a picture of an orchard, with lemons in the lemon trees,  but they came out looking more like telephone poles., Pronoun: they, Question: (A) lemons (B) lemon trees",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_259",
+			"input": "James asked Robert for a favor but he was refused., Pronoun: he, Question: (A) James (B) Robert",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_260",
+			"input": "James asked Robert for a favor but he refused., Pronoun: he, Question: (A) James (B) Robert",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_261",
+			"input": "Kirilov ceded the presidency to Shatov because he was less popular., Pronoun: he, Question: (A) Kirilov (B) Shatov",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_262",
+			"input": "Kirilov ceded the presidency to Shatov because he was more popular., Pronoun: he, Question: (A) Kirilov (B) Shatov",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_263",
+			"input": "Emma did not pass the ball to Janie although she saw that she was open., Pronoun: she, Question: (A) Emma (B) Janie",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_264",
+			"input": "Emma did not pass the ball to Janie although she was open., Pronoun: she, Question: (A) Emma (B) Janie",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_265",
+			"input": "I put the butterfly wing on the table and it broke., Pronoun: it, Question: (A) The butterfly wing (B) The table",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_266",
+			"input": "I put the heavy book on the table and it broke., Pronoun: it, Question: (A) The heavy book (B) The table",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_267",
+			"input": "Madonna fired her trainer because she couldn't stand her boyfriend., Pronoun: she, Question: (A) Madonna (B) The trainer",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_268",
+			"input": "Madonna fired her trainer because she slept with her boyfriend., Pronoun: she, Question: (A) Madonna (B) The trainer",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_269",
+			"input": "Madonna fired her trainer because she slept with her boyfriend., Pronoun: her, Question: (A) Madonna (B) The trainer",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_270",
+			"input": "Madonna fired her trainer because she couldn't stand her boyfriend., Pronoun: her, Question: (A) Madonna (B) The trainer",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_271",
+			"input": "Carol believed that Rebecca suspected that she had stolen the watch., Pronoun: she, Question: (A) Carol (B) Rebecca",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_272",
+			"input": "Carol believed that Rebecca regretted that she had stolen the watch., Pronoun: she, Question: (A) Carol (B) Rebecca",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_273",
+			"input": "This book introduced Shakespeare to Ovid; it was a major influence on his writing., Pronoun: his, Question: (A) Shakespeare (B) Ovid",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_274",
+			"input": "This book introduced Shakespeare to Goethe; it was a major influence on his writing., Pronoun: his, Question: (A) Shakespeare (B) Goethe",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_275",
+			"input": "This book introduced Shakespeare to Ovid; it was a fine selection of his writing., Pronoun: his, Question: (A) Shakespeare (B) Ovid",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_276",
+			"input": "This book introduced Shakespeare to Goethe; it was a fine selection of his writing., Pronoun: his, Question: (A) Shakespeare (B) Goethe",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_277",
+			"input": "Alice looked for her friend Jade in the crowd. Since she always has good luck, Alice spotted her quickly., Pronoun: she, Question: (A) Alice (B) Jade",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_278",
+			"input": "Alice looked for her friend Jade in the crowd. Since she always wears a red turban, Alice spotted her quickly., Pronoun: she, Question: (A) Alice (B) Jade",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_279",
+			"input": "During a game of tag, Ethan chased Luke because he was \"it\"., Pronoun: he, Question: (A) Ethan (B) Luke",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_280",
+			"input": "During a game of tag, Ethan ran from Luke because he was \"it\"., Pronoun: he, Question: (A) Ethan (B) Luke",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_281",
+			"input": "At the Loebner competition the judges couldn't figure out which respondents were the chatbots because they were so stupid., Pronoun: they, Question: (A) the judges (B) the chatbots",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_282",
+			"input": "At the Loebner competition the judges couldn't figure out which respondents were the chatbots because they were so advanced., Pronoun: they, Question: (A) the judges (B) the chatbots",
+			"output": [
+				"B"
+			]
+		},
+		{
+			"id": "task648_283",
+			"input": "The user changed his password from \"GrWQWu8JyC\" to \"willow-towered Canopy Huntertropic wrestles\" as it was easy to forget., Pronoun: it, Question: (A) GrWQWu8JyC (B) willow-towered Canopy\nHuntertropic wrestles",
+			"output": [
+				"A"
+			]
+		},
+		{
+			"id": "task648_284",
+			"input": "The user changed his password from \"GrWQWu8JyC\" to \"willow-towered Canopy Huntertropic wrestles\" as it was easy to remember., Pronoun: it, Question: (A) GrWQWu8JyC (B) willow-towered Canopy\nHuntertropic wrestles",
+			"output": [
+				"B"
+			]
+		}
+	]
+}

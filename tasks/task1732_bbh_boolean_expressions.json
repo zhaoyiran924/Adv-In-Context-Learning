@@ -1,0 +1,1788 @@
+{
+	"Definition": [
+		"Evaluate the result of a random Boolean expression."
+	],
+	"Categories": [
+		"Question Answering"
+	],
+	"Positive Examples": [
+		{
+			"input": "not ( ( not not True ) ) is",
+			"output": "Let's think step by step.\nRemember that (i) expressions inside brackets are always evaluated first and that (ii) the order of operations from highest priority to lowest priority is \"not\", \"and\", \"or\", respectively.\nWe first simplify this expression \"Z\" as follows: \"Z = not ( ( not not True ) ) = not ( ( A ) )\" where \"A = not not True\".\nLet's evaluate A: A = not not True = not (not True) = not False = True.\nPlugging in A, we get: Z = not ( ( A ) ) = not ( ( True ) ) = not True = False. So the answer is False."
+		},
+		{
+			"input": "True and False and not True and True is",
+			"output": "Let's think step by step.\nRemember that (i) expressions inside brackets are always evaluated first and that (ii) the order of operations from highest priority to lowest priority is \"not\", \"and\", \"or\", respectively.\nWe first simplify this expression \"Z\" as follows: \"Z = True and False and not True and True = A and B\" where \"A = True and False\" and \"B = not True and True\".\nLet's evaluate A: A = True and False = False.\nLet's evaluate B: B = not True and True = not (True and True) = not (True) = False.\nPlugging in A and B, we get: Z = A and B = False and False = False. So the answer is False."
+		},
+		{
+			"input": "not not ( not ( False ) ) is",
+			"output": "Let's think step by step.\nRemember that (i) expressions inside brackets are always evaluated first and that (ii) the order of operations from highest priority to lowest priority is \"not\", \"and\", \"or\", respectively.\nWe first simplify this expression \"Z\" as follows: \"Z = not not ( not ( False ) ) = not not ( A )\" where \"A = not ( False )\".\nLet's evaluate A: A = not ( False ) = not False = True.\nPlugging in A, we get: Z = not not ( A ) = not not (True) = not not False = True. So the answer is True."
+		}
+	],
+	"Negative Examples": [
+		{
+			"input": "not ( ( not not True ) ) is",
+			"output": "Let's think step by step. \nnot not True is the same as True. \nnot (True) is the same as False. \nTherefore, not ( ( not not True ) ) is the same as not (False), which is the same as True."
+		},
+		{
+			"input": "True and False and not True and True is",
+			"output": "True and False is False. \nFalse and not True is False. \nFalse and True is False."
+		},
+		{
+			"input": "not not ( not ( False ) ) is",
+			"output": "not not ( not ( False ) )\nnot ( True )\nFalse."
+		}
+	],
+	"Instances": [
+		{
+			"id": "task1732_0",
+			"input": "not ( True ) and ( True ) is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_1",
+			"input": "True and not not ( not False ) is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_2",
+			"input": "not True or False or ( False ) is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_3",
+			"input": "False or not ( True ) and False is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_4",
+			"input": "True or not False and True and False is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_5",
+			"input": "False or not not not False and True is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_6",
+			"input": "not True and ( False or True ) is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_7",
+			"input": "True and not False or ( True ) is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_8",
+			"input": "not True or ( False and True ) is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_9",
+			"input": "not True or ( True or False ) is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_10",
+			"input": "False or ( False ) and not False is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_11",
+			"input": "not False or True and False and False is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_12",
+			"input": "not True or False or not not True is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_13",
+			"input": "True and True and False and not True is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_14",
+			"input": "not not True and not True or True is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_15",
+			"input": "not not not ( True and False ) is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_16",
+			"input": "not not False and not not not False is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_17",
+			"input": "( True and not True and False ) is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_18",
+			"input": "False and False and False or not False is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_19",
+			"input": "False or ( False and not False ) is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_20",
+			"input": "True and False or ( not True ) is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_21",
+			"input": "not not ( True ) and not False is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_22",
+			"input": "not False or ( True ) and True is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_23",
+			"input": "not ( True ) or False or True is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_24",
+			"input": "( True and not not not True ) is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_25",
+			"input": "( False or not False or False ) is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_26",
+			"input": "False and False or True and not False is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_27",
+			"input": "not not False or not False or True is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_28",
+			"input": "True and not True or False or True is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_29",
+			"input": "not False or True and False or False is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_30",
+			"input": "False and ( not False ) or False is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_31",
+			"input": "not not not not ( not False ) is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_32",
+			"input": "( True ) and True or not True is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_33",
+			"input": "not True or False and False and False is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_34",
+			"input": "not not not not not not not False is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_35",
+			"input": "not True or not False and not False is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_36",
+			"input": "False or True or False and not False is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_37",
+			"input": "not ( True or True ) and False is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_38",
+			"input": "not not not not True and not True is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_39",
+			"input": "( False ) or False and not True is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_40",
+			"input": "( False and True or not False ) is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_41",
+			"input": "not not not ( False and True ) is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_42",
+			"input": "not not True and not False or True is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_43",
+			"input": "not False or True and not not True is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_44",
+			"input": "True or True or not False or False is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_45",
+			"input": "( not False and False and False ) is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_46",
+			"input": "( ( not True ) or True ) is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_47",
+			"input": "not not ( not False or True ) is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_48",
+			"input": "not True or False or ( True ) is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_49",
+			"input": "False or ( not False ) and True is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_50",
+			"input": "not False or False or ( False ) is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_51",
+			"input": "not not False or False and not True is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_52",
+			"input": "True or ( ( not True ) ) is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_53",
+			"input": "not False and not False and not False is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_54",
+			"input": "( False ) and not False and True is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_55",
+			"input": "( True ) and False or not False is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_56",
+			"input": "( not False and ( True ) ) is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_57",
+			"input": "False or not ( False ) or True is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_58",
+			"input": "True and not False and not not True is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_59",
+			"input": "not True and True and True or False is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_60",
+			"input": "not not ( False and not True ) is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_61",
+			"input": "True or not ( ( False ) ) is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_62",
+			"input": "False or not True or False or False is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_63",
+			"input": "False or not not True or not False is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_64",
+			"input": "not ( True or True or False ) is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_65",
+			"input": "False or not not not not not False is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_66",
+			"input": "not ( False ) or not not True is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_67",
+			"input": "True and not False or False and False is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_68",
+			"input": "True or ( not ( True ) ) is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_69",
+			"input": "( False or True and not True ) is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_70",
+			"input": "False or not True and True or True is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_71",
+			"input": "not not not not not not not True is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_72",
+			"input": "( not False ) and False or True is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_73",
+			"input": "False and False or not ( True ) is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_74",
+			"input": "( not False or True ) and True is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_75",
+			"input": "not ( False ) and ( False ) is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_76",
+			"input": "False or True and not not not False is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_77",
+			"input": "( True ) and True and not True is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_78",
+			"input": "( not True ) and True and False is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_79",
+			"input": "( not not True and not False ) is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_80",
+			"input": "True and ( False ) or not False is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_81",
+			"input": "not not not False or False and False is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_82",
+			"input": "not not not False and True or False is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_83",
+			"input": "True or ( True or not False ) is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_84",
+			"input": "not False or ( ( False ) ) is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_85",
+			"input": "not not ( False and not False ) is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_86",
+			"input": "not not not not True or not True is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_87",
+			"input": "False and not ( False or False ) is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_88",
+			"input": "True and True and True or not False is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_89",
+			"input": "False or not False or True and True is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_90",
+			"input": "not False and False and False or False is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_91",
+			"input": "( False ) or not False or True is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_92",
+			"input": "( not False ) or ( True ) is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_93",
+			"input": "not not ( False or not True ) is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_94",
+			"input": "False or not False or False or False is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_95",
+			"input": "False or not False and ( False ) is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_96",
+			"input": "False or ( False ) or not True is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_97",
+			"input": "not True or False and True and True is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_98",
+			"input": "True or ( True or not True ) is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_99",
+			"input": "True and not False and True or True is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_100",
+			"input": "False or not False or not not True is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_101",
+			"input": "( True or not False ) or False is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_102",
+			"input": "False or not ( True ) and True is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_103",
+			"input": "not False and not True and not False is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_104",
+			"input": "False and ( True and not False ) is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_105",
+			"input": "not False or ( False ) or True is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_106",
+			"input": "False and not ( False and True ) is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_107",
+			"input": "( True or not not not False ) is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_108",
+			"input": "False and ( False or not False ) is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_109",
+			"input": "False or not True or True and False is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_110",
+			"input": "True and not True or True and True is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_111",
+			"input": "( not False or ( True ) ) is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_112",
+			"input": "( ( not ( True ) ) ) is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_113",
+			"input": "False and False and not ( False ) is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_114",
+			"input": "not True and not True and not True is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_115",
+			"input": "not ( True or False ) or True is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_116",
+			"input": "False or ( True ) or not True is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_117",
+			"input": "False or False and False or not True is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_118",
+			"input": "True or False or not True or False is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_119",
+			"input": "not True and ( True and True ) is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_120",
+			"input": "not True and True or True and False is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_121",
+			"input": "not False or ( True or True ) is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_122",
+			"input": "not ( False or ( False ) ) is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_123",
+			"input": "not ( True or True ) and True is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_124",
+			"input": "False or not False or True or True is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_125",
+			"input": "False or False and not not not False is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_126",
+			"input": "not ( True or False or True ) is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_127",
+			"input": "( False ) or not True and False is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_128",
+			"input": "True and True and not not not False is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_129",
+			"input": "( True ) or True and not True is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_130",
+			"input": "False and False and not True and False is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_131",
+			"input": "( True ) and not True or True is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_132",
+			"input": "not not not True and False and False is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_133",
+			"input": "False and False and not not not True is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_134",
+			"input": "False and False or False or not True is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_135",
+			"input": "False or ( not ( False ) ) is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_136",
+			"input": "not True and True and not not False is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_137",
+			"input": "( False ) and ( not False ) is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_138",
+			"input": "( not True ) and True or True is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_139",
+			"input": "False and True and ( not False ) is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_140",
+			"input": "( ( True ) ) or not False is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_141",
+			"input": "not True and False or False or True is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_142",
+			"input": "True and not True and True and True is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_143",
+			"input": "( True or True or not False ) is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_144",
+			"input": "True or not False and True or True is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_145",
+			"input": "( not ( False ) or False ) is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_146",
+			"input": "True and not ( True or False ) is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_147",
+			"input": "not ( False and True ) and True is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_148",
+			"input": "not ( True and True ) or False is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_149",
+			"input": "False or not True and not not False is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_150",
+			"input": "not True and False or False and False is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_151",
+			"input": "not True or True and False or False is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_152",
+			"input": "( not ( False ) and False ) is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_153",
+			"input": "False or ( True and not True ) is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_154",
+			"input": "not False and not True or not True is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_155",
+			"input": "( False or not not not False ) is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_156",
+			"input": "( not False ) or True and False is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_157",
+			"input": "( not not True ) or not False is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_158",
+			"input": "True or not ( ( True ) ) is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_159",
+			"input": "( False ) and False or not False is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_160",
+			"input": "not False and True or ( True ) is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_161",
+			"input": "True or not not ( not False ) is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_162",
+			"input": "False and not True and False and True is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_163",
+			"input": "not not True and True and not True is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_164",
+			"input": "not False or not ( not False ) is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_165",
+			"input": "not not ( True ) or not True is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_166",
+			"input": "( True and not True and True ) is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_167",
+			"input": "True or False or not True or True is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_168",
+			"input": "not True or True and False and False is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_169",
+			"input": "True and not not not not not True is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_170",
+			"input": "not True and ( False ) and False is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_171",
+			"input": "False and False or not True and False is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_172",
+			"input": "True or False and not True and False is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_173",
+			"input": "not ( False or False or True ) is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_174",
+			"input": "not False or True or True and False is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_175",
+			"input": "not False and False or False or False is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_176",
+			"input": "( not True ) and ( False ) is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_177",
+			"input": "True and not not False and not False is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_178",
+			"input": "not ( not not False ) and True is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_179",
+			"input": "not ( not False ) and not False is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_180",
+			"input": "False or True and not False or True is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_181",
+			"input": "( not not not True and True ) is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_182",
+			"input": "False and not ( True ) or True is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_183",
+			"input": "( not True and False or True ) is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_184",
+			"input": "not ( not not True ) or False is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_185",
+			"input": "( not False ) or ( False ) is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_186",
+			"input": "not not not False and True and False is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_187",
+			"input": "True or not True or not not True is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_188",
+			"input": "not False or not not False and False is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_189",
+			"input": "not False and ( False or False ) is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_190",
+			"input": "False and True or ( not False ) is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_191",
+			"input": "False and not False and ( False ) is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_192",
+			"input": "not ( ( False and True ) ) is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_193",
+			"input": "False or ( not False ) and False is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_194",
+			"input": "False and not False or False and True is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_195",
+			"input": "not False and not not True and True is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_196",
+			"input": "True and True or False and not True is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_197",
+			"input": "not True or False and True or False is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_198",
+			"input": "True or False or not True and True is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_199",
+			"input": "False or False or not True or False is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_200",
+			"input": "False or False or True and not False is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_201",
+			"input": "( not ( True or False ) ) is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_202",
+			"input": "not False and False or True and True is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_203",
+			"input": "True and False or ( not False ) is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_204",
+			"input": "not False or not not not not True is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_205",
+			"input": "True and ( not ( True ) ) is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_206",
+			"input": "True and False and not True or False is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_207",
+			"input": "( ( not False ) ) and True is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_208",
+			"input": "not ( True ) and ( False ) is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_209",
+			"input": "True or not False and False and False is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_210",
+			"input": "True and not ( False or False ) is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_211",
+			"input": "not True and False or False and True is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_212",
+			"input": "not True or not False and not True is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_213",
+			"input": "not True or False or True and True is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_214",
+			"input": "not True and True and False and True is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_215",
+			"input": "False and False or not True and True is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_216",
+			"input": "( not False or False and True ) is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_217",
+			"input": "( True or False ) or not True is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_218",
+			"input": "not not not ( False ) and False is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_219",
+			"input": "not False and False and False and True is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_220",
+			"input": "False and not True and True or False is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_221",
+			"input": "( False or not False and False ) is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_222",
+			"input": "False or ( False or not False ) is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_223",
+			"input": "not False or True or False and False is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_224",
+			"input": "True or ( not False ) or True is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_225",
+			"input": "not False and False or True or False is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_226",
+			"input": "False and not ( not not False ) is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_227",
+			"input": "not not ( not True ) or False is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_228",
+			"input": "False and not True and True and False is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_229",
+			"input": "True or False and not ( True ) is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_230",
+			"input": "not ( False ) and ( True ) is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_231",
+			"input": "False and not ( ( True ) ) is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_232",
+			"input": "not False or ( not not False ) is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_233",
+			"input": "( ( not False ) and False ) is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_234",
+			"input": "True or False and not False and True is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_235",
+			"input": "( ( not True and True ) ) is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_236",
+			"input": "not ( False ) or not not False is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_237",
+			"input": "not ( False or False and False ) is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_238",
+			"input": "False and not ( not not True ) is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_239",
+			"input": "False and False and not ( True ) is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_240",
+			"input": "False or ( not False and False ) is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_241",
+			"input": "False or ( not not not True ) is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_242",
+			"input": "( not False ) or not not False is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_243",
+			"input": "not False and False and True or False is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_244",
+			"input": "True or not False and ( False ) is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_245",
+			"input": "( not ( False ) ) or False is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_246",
+			"input": "True and not True or False and True is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_247",
+			"input": "not ( not not not not False ) is",
+			"output": [
+				"True"
+			]
+		},
+		{
+			"id": "task1732_248",
+			"input": "True and ( not True or False ) is",
+			"output": [
+				"False"
+			]
+		},
+		{
+			"id": "task1732_249",
+			"input": "( not not not False or True ) is",
+			"output": [
+				"True"
+			]
+		}
+	]
+}
