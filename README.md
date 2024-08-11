@@ -1,6 +1,6 @@
-# Adversarial In-Context Learning 
+# Prompt Optimization via Adversarial In-Context Learning 
 
-This repository contains codes for the paper: **Adversarial In-Context Learning for Large Language Models**
+This repository contains codes for the ACL 2024 Oral paper: [Prompt Optimization via Adversarial In-Context Learning](https://arxiv.org/abs/2312.02614)
 
 ## Requirements
 
@@ -39,5 +39,5 @@ We provide example formats of the input dataset in the folder [`tasks`](tasks).
    'evaluation.py' is used to compare your anwer with labeled test dataset by
    ```
    python evaluation.py --prediction_file=[address of prediction file] --reference_file=[address of reference file got by create_reference_file.py]
-
+   
    ```
